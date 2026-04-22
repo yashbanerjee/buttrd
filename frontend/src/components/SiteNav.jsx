@@ -1,15 +1,19 @@
-import { Link, NavLink } from 'react-router-dom'
-import { FeedbackNavLink } from './FeedbackNavLink.jsx'
+import { Link, NavLink } from "react-router-dom";
+import { FeedbackNavLink } from "./FeedbackNavLink.jsx";
 
-const linkClass = ({ isActive }) => (isActive ? 'active' : undefined)
+const linkClass = ({ isActive }) => (isActive ? "active" : undefined);
 
 export function SiteNav() {
   return (
     <nav className="nav">
       <div className="nav-inner">
         <Link to="/" className="nav-logo">
-          <img src="/assets/buttrd-logo.png" className="logo-img" alt="Buttrd" />
-          <span className="logo-tagline">Catering &amp; Cloud Kitchen</span>
+          <img
+            src="/assets/buttrd-logo.png"
+            className="logo-img"
+            alt="Buttrd"
+          />
+          {/* <span className="logo-tagline">Catering &amp; Cloud Kitchen</span> */}
         </Link>
         <ul className="nav-links">
           <li>
@@ -33,5 +37,5 @@ export function SiteNav() {
         </ul>
       </div>
     </nav>
-  )
+  );
 }

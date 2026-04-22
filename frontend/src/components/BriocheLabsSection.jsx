@@ -7,7 +7,7 @@ function StarDots() {
         </span>
       ))}
     </div>
-  )
+  );
 }
 
 export function BriocheLabsSection() {
@@ -16,11 +16,26 @@ export function BriocheLabsSection() {
       <div className="section-inner">
         <div className="brioche-inner">
           <div className="brioche-image brioche-image--labs">
-            <img src="/assets/brioche-bread.png" alt="Fresh toasted brioche slice" />
+            <img
+              src="/assets/brioche-labs-hero.png"
+              alt="Stack of four loaded toasted brioche rolls with toppings and sauce drizzle"
+            />
           </div>
           <div className="brioche-content brioche-content--labs">
-            <h2 className="brioche-labs-title">THE BRIOCHE LABS</h2>
-            <p className="brioche-labs-tagline">We make our breads fresh everyday, so it can make your day better.</p>
+            <h2 className="brioche-labs-title">
+              THE BRIOCHE LABS - The Perfect Vessel for The Perfect Dip
+            </h2>
+            <p className="brioche-labs-tagline">
+              A signature sauce is only as good as the grain that carries it.
+              That’s why we’re obsessive about our bread. It isn't just a
+              pairing; it’s a revelation-toasted to a golden precision that
+              shatters at the first bite, only to melt away like butter on a hot
+              pan. It is the silent hero of the Buttrd experience, designed to
+              soak up every drop of our Buttrd, Beef Chilli, and Birria
+              signatures. When the crunch of the crust meets the depth of the
+              simmer, that’s when you realize: this isn't just a meal. It’s a
+              masterpiece of texture.
+            </p>
             <div className="rating-row">
               <div className="rating-item">
                 <span className="rating-label">Buttery:</span>
@@ -43,5 +58,5 @@ export function BriocheLabsSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

@@ -1,12 +1,12 @@
-import { Helmet } from 'react-helmet-async'
-import { Link } from 'react-router-dom'
-import { FeedbackFaq } from '../components/FeedbackFaq.jsx'
-import { Footer } from '../components/Footer.jsx'
-import { SocialSection } from '../components/SocialSection.jsx'
-import { BriocheLabsSection } from '../components/BriocheLabsSection.jsx'
-import { WaveDivider } from '../components/WaveDivider.jsx'
-import { homeFaqs } from '../data/faqs.js'
-import { homeSocialImages } from '../data/socialGrids.js'
+import { Helmet } from "react-helmet-async";
+import { Link } from "react-router-dom";
+import { FeedbackFaq } from "../components/FeedbackFaq.jsx";
+import { Footer } from "../components/Footer.jsx";
+import { SocialSection } from "../components/SocialSection.jsx";
+import { BriocheLabsSection } from "../components/BriocheLabsSection.jsx";
+import { WaveDivider } from "../components/WaveDivider.jsx";
+import { homeFaqs } from "../data/faqs.js";
+import { homeSocialImages } from "../data/socialGrids.js";
 
 export function HomePage() {
   return (
@@ -19,27 +19,35 @@ export function HomePage() {
         <div className="hero-inner">
           <div className="hero-content">
             <span className="hero-headline">
-              Comfort Food,
-              <br />
-              Reimagined
-              <br />
-              Boldly
+              MADE FOR THE MOMENT <br />
+              YOU’VE BEEN CRAVING.
             </span>
             <div>
-              <p className="hero-subtitle">We don&apos;t start with dishes. We start with flavour.</p>
-              <p className="hero-body" style={{ marginTop: '10px' }}>
-                Buttrd is built on a simple idea: take the comfort food people already love—and reinvent it in bold,
-                unexpected ways. Everything on our menu is built around signature sauces — Buttrd, Beef Chilli, and
-                Birria — developed in-house and designed to transform familiar formats like sandwiches, pasta, and rice
-                bowls into something more addictive, more indulgent, and more memorable.
+              <p className="hero-subtitle">
+                One Obsession. Three Signature Icons.
               </p>
-              <p className="hero-body" style={{ marginTop: '14px' }}>
-                This isn&apos;t about reinventing food for the sake of it. It is about doing simple things better —
-                with more intention, more depth, and more flavour.
+              <p className="hero-body" style={{ marginTop: "10px" }}>
+                Buttrd was born from a singular pursuit: to elevate the dishes
+                that hit the soul. We don’t just serve food; we serve the result
+                of countless hours spent balancing richness with intention.
+              </p>
+              <p className="hero-body" style={{ marginTop: "14px" }}>
+                Our menu is built upon a foundation of three distinct icons: the
+                creamy indulgence of our Buttrd sauce, the savory intensity of
+                our Beef Chilli, and the deep, aromatic comfort of our Beef
+                Birria. By reimagining these classics with a signature twist,
+                we’ve created a dining experience that feels like home-only hit
+                with a character you won't find anywhere else.
               </p>
             </div>
-            <Link to="/catering" className="hero-cta">
-              <svg width="32" height="32" viewBox="0 0 35 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <Link to="/home" className="hero-cta">
+              {/* <svg
+                width="32"
+                height="32"
+                viewBox="0 0 35 28"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M33 18H30M30 18V14L27 10H22V18M30 18H22M22 18H11M11 18H8M8 18C8 19.66 6.66 21 5 21C3.34 21 2 19.66 2 18M8 18C8 16.34 6.66 15 5 15C3.34 15 2 16.34 2 18M2 18H0M26 20.5C26 21.88 25.12 22 25.5 22C25.88 22 26 21.88 26 20.5C26 19.12 25.88 18 25.5 18C25.12 18 26 19.12 26 20.5ZM14 20.5C14 21.88 13.12 22 13.5 22C13.88 22 14 21.88 14 20.5C14 19.12 13.12 18 13.5 18C13.88 18 14 19.12 14 20.5ZM2 14L8 6H18V14"
                   stroke="white"
@@ -47,7 +55,7 @@ export function HomePage() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-              </svg>
+              </svg> */}
               Get Buttr&apos;d In 30 Minutes
             </Link>
           </div>
@@ -66,22 +74,31 @@ export function HomePage() {
         <div className="section-inner">
           <div className="sauces-header">
             <div className="sauces-title-group">
-              <h2 className="sauces-title">Signature Sauces, <br/>Made In-House</h2>
+              <h2 className="sauces-title">The Trinity of Taste.</h2>
               <p className="sauces-subtitle">
-                A great sauce can change everything. Our Buttrd, Beef Chilli, and Birria sauces are the foundation of
-                the menu—each one crafted to turn the dishes you already crave into something worth coming back for.
+                Great food isn’t an accident; it’s an obsession. We’ve distilled
+                our culinary philosophy into three signature profiles that serve
+                as the heartbeat of our kitchen. Whether it’s the velvety,
+                golden balance of our Buttrd sauce, the rugged, savory depth of
+                our Beef Chilli, or the spiced, slow-braised soul of our Beef
+                Birria, we don’t just add flavor—we build it from the ground up.
+                This is the foundation of every bite we serve.
               </p>
             </div>
-            <div style={{ flexShrink: 0, position: 'relative' }}>
-              <img src="/assets/buttrd-logo.png" style={{ height: '52px', width: 'auto' }} alt="Buttrd" />
+            <div style={{ flexShrink: 0, position: "relative" }}>
+              <img
+                src="/assets/buttrd-logo.png"
+                style={{ height: "52px", width: "auto" }}
+                alt="Buttrd"
+              />
               <span
                 style={{
-                  display: 'none',
-                  fontFamily: 'var(--font-display)',
-                  fontSize: '55px',
+                  display: "none",
+                  fontFamily: "var(--font-display)",
+                  fontSize: "55px",
                   fontWeight: 700,
-                  color: 'var(--yellow)',
-                  transform: 'rotate(-10deg) translateX(20px)',
+                  color: "var(--yellow)",
+                  transform: "rotate(-10deg) translateX(20px)",
                 }}
                 aria-hidden
               >
@@ -97,8 +114,9 @@ export function HomePage() {
               </div>
               <p className="sauce-card-title">Buttrd Sauce</p>
               <p className="sauce-card-desc">
-                Our take on butter chicken, with a perfect balance of sweetness and a gentle tang, reimagined the
-                Buttrd way. Rich, creamy, and indulgent.
+                Our take on butter chicken, with a perfect balance of sweetness
+                and a gentle tang, reimagined the Buttrd way. Rich, creamy, and
+                indulgent.
               </p>
             </div>
             <div className="sauce-card">
@@ -107,8 +125,8 @@ export function HomePage() {
               </div>
               <p className="sauce-card-title">Beef Chilli</p>
               <p className="sauce-card-desc">
-                Slow-cooked beef in a rich, savoury chilli con carne, packed with serious flavour in every bite. Messy,
-                rich and hearty.
+                Slow-cooked beef in a rich, savoury chilli con carne, packed
+                with serious flavour in every bite. Messy, rich and hearty.
               </p>
             </div>
             <div className="sauce-card">
@@ -117,8 +135,8 @@ export function HomePage() {
               </div>
               <p className="sauce-card-title">Beef Birria</p>
               <p className="sauce-card-desc">
-                Slow-braised beef soaked in rich, spiced broth, packed with warmth in every bite. Deep, comforting, and
-                worth every drip.
+                Slow-braised beef soaked in rich, spiced broth, packed with
+                warmth in every bite. Deep, comforting, and worth every drip.
               </p>
             </div>
           </div>
@@ -136,66 +154,77 @@ export function HomePage() {
           <div className="food-range-header">
             <h2>The Menu</h2>
             <p>
-              A sauce that feels familiar, but hits differently. A sandwich you think you know until the first bite.
-              Flavours that comfort you, but still surprise you. From brioche to bowls to melts and something sweet at
-              the end—every format is a chance to let the sauces do what they do best.
+              Comfort food, curated by flavor. Whether it’s pillowy brioche,
+              hearty bowls, or our signature melts, every format is a deliberate
+              stage for our three icons: Buttrd, Beef Chilli, and Birria. Choose
+              your base, pick your soul, and rediscover the classics.
             </p>
           </div>
           <div className="food-range-cards">
             <div className="food-card food-card-yellow food-card--split">
               <div className="food-card-text">
-                <h3>
-                  Brioche
-                  <br />
-                  Rolls
-                </h3>
-                <p>Soft, buttery rolls built to carry our sauces—perfect when you want comfort you can hold in two hands.</p>
+                <h3>BRIOCHE ROLLS</h3>
+                <p>
+                  The softest seat in the house for our boldest flavors.
+                  Pillowy, buttery, and built to be held.
+                </p>
                 <Link to="/offers" className="food-card-cta">
                   order now
                 </Link>
               </div>
-              <div className="food-card-media food-card-media--placeholder" aria-label="Brioche rolls photo placeholder">
-                <span className="food-card-media__placeholder-label" aria-hidden="true">
-                  Photo placeholder
-                </span>
+              <div className="food-card-media">
+                <img
+                  src="/assets/brioche-rolls-stack.png"
+                  alt="Stack of four loaded brioche sandwiches with pink sauce poured over the top"
+                />
               </div>
             </div>
 
             <div className="food-card food-card-blue food-card--split">
               <div className="food-card-text">
-                <h3>Rice &amp; Pasta Bowls</h3>
+                <h3>RICE & PASTA BOWLS</h3>
                 <p>
-                  Rice and pasta become a canvas: the same sauces you love, coating every forkful with depth and warmth.
+                  Where grains and greens meet the depth of the simmer. A
+                  hearty, soulful soak in every forkful.
                 </p>
                 <Link to="/offers" className="food-card-cta">
                   order now
                 </Link>
               </div>
               <div className="food-card-media">
-                <img src="/assets/catering-hero.png" alt="Rice and pasta bowls" />
+                <img
+                  src="/assets/rice-pasta-bowls.png"
+                  alt="Fork twirl of pasta topped with shredded meat and herbs on a pink background"
+                />
               </div>
             </div>
 
             <div className="food-card food-card-pink food-card--split">
               <div className="food-card-text">
-                <h3>Melts &amp; Wraps</h3>
+                <h3>MELTS & WRAPS</h3>
                 <p>
-                  Messy-in-the-best-way layers—paneer, beef, or whatever the day calls for—so the first bite is never
-                  quite what you expected.
+                  Golden-crisped, gooey, and unapologetically messy. The
+                  ultimate collision of crunch and melt.
                 </p>
                 <Link to="/offers" className="food-card-cta">
                   order now
                 </Link>
               </div>
               <div className="food-card-media">
-                <img src="/assets/melts-wraps.png" alt="Melts and Wraps" />
+                <img
+                  src="/assets/melts-wraps.png"
+                  alt="Toasted melt sandwich halves stacked with pulled beef and melted cheese on branded paper"
+                />
               </div>
             </div>
 
             <div className="food-card food-card-ice food-card--split">
               <div className="food-card-text">
-                <h3>Desserts &amp; Drinks</h3>
-                <p>Round off the meal with something sweet or cold—because indulgence shouldn&apos;t stop at the main event.</p>
+                <h3>DESSERTS & DRINKS</h3>
+                <p>
+                  The encore your meal deserves. Cool, sweet, and designed to
+                  balance the heat.
+                </p>
                 <Link to="/offers" className="food-card-cta">
                   order now
                 </Link>
@@ -204,7 +233,10 @@ export function HomePage() {
                 className="food-card-media food-card-media--placeholder food-card-media--placeholder-ice"
                 aria-label="Desserts and drinks photo placeholder"
               >
-                <span className="food-card-media__placeholder-label" aria-hidden="true">
+                <span
+                  className="food-card-media__placeholder-label"
+                  aria-hidden="true"
+                >
                   Photo placeholder
                 </span>
               </div>
@@ -217,5 +249,5 @@ export function HomePage() {
       <FeedbackFaq faqs={homeFaqs} />
       <Footer aboutUsTo="#" />
     </>
-  )
+  );
 }

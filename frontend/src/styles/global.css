@@ -1,7 +1,7 @@
 /* =============================
    BUTTRD – Shared Stylesheet
    ============================= */
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;0,6..12,900;1,6..12,400&display=swap');
 
 :root {
   /* Max width for centered content blocks (nav, sections, footer, etc.) */
@@ -29,11 +29,12 @@
   /* Space left below hero image for headline on first mobile screen (title + gap) */
   --mobile-hero-headline-reserve: clamp(150px, 26vh, 220px);
 
-  /* Titles & display: Baloo 2 · Body & UI: Nunito Sans (only these two families site-wide) */
+  /* Display: Baloo 2 · Body: Nunito Sans · Accent script: Caveat (e.g. brioche “Must Try!”) */
   --font-display: 'Baloo 2', sans-serif;
   --font-body:    'Nunito Sans', sans-serif;
-  /* Display text on yellow: slightly deepened theme pink for contrast */
-  --sticker-fill:          color-mix(in srgb, var(--pink) 82%, var(--dark) 18%);
+  --font-must-try: 'Caveat', cursive;
+  /* Display text on yellow — same brand pink as body accents */
+  --sticker-fill:          var(--pink);
   --sticker-outline:       #ffffff;
   --sticker-shadow-deep:  rgba(165, 120, 135, 0.35);
   --sticker-shadow-mid:   rgba(190, 140, 155, 0.28);
@@ -65,7 +66,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .catering-headline {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(44px, 5.8vw, 88px);
   text-transform: uppercase;
   letter-spacing: 0.045em;
   line-height: 0.86;
@@ -85,13 +85,20 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .hero-content .hero-headline { align-self: flex-start; }
 .catering-hero-content .catering-headline { align-self: flex-start; }
 
+.hero-headline {
+  font-size: 60px;
+}
+.catering-headline {
+  font-size: clamp(44px, 5.8vw, 88px);
+}
+
 .sauces-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 48px;
+  font-size: 56px;
   text-transform: uppercase;
   letter-spacing: 0px;
-  line-height: 48px;
+  line-height: 56px;
   color: var(--sticker-fill);
   -webkit-text-stroke: clamp(5px, 0.85vw, 10px) var(--sticker-outline);
   paint-order: stroke fill;
@@ -218,21 +225,20 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   font-size: clamp(15px, 1.4vw, 20px);
 }
 
-/* Our Story page H1 */
+/* Our Story page — letter heading */
 .story-title {
-  font-family: var(--font-display);
+  font-family: var(--font-must-try);
   font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.045em;
-  line-height: 0.86;
-  color: var(--sticker-fill-on-pink);
-  -webkit-text-stroke: clamp(4px, 0.7vw, 10px) var(--sticker-outline);
-  paint-order: stroke fill;
-  filter: drop-shadow(0 4px 0 rgba(0, 0, 0, 0.08)) drop-shadow(0 10px 18px var(--sticker-shadow-deep));
-  transform: rotate(-2deg) translateY(-6px);
-  display: inline-block;
-  margin-bottom: 32px;
-  font-size: clamp(48px, 8vw, 112px);
+  font-size: clamp(42px, 5.5vw, 84px);
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  color: var(--pink);
+  margin: 0 0 28px;
+  text-transform: none;
+  -webkit-text-stroke: 0;
+  filter: none;
+  transform: none;
+  display: block;
 }
 
 .beliefs-title {
@@ -247,17 +253,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   filter: drop-shadow(0 3px 0 var(--sticker-shadow-mid)) drop-shadow(0 6px 12px var(--sticker-shadow-deep));
   font-size: clamp(20px, 2.4vw, 32px);
   margin-top: 8px;
-}
-
-.story-sauce-item h4 {
-  font-family: var(--font-display);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  color: var(--sticker-fill);
-  font-size: clamp(17px, 1.6vw, 22px);
-  margin-bottom: 8px;
 }
 
 /* ─── WAVE DIVIDER ─── */
@@ -496,7 +491,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   z-index: 1;
 }
 .hero-content { display: flex; flex-direction: column; gap: 24px; padding-bottom: 60px; }
-.hero-subtitle { font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 3vw, 40px); color: #000; line-height: 1.3; }
+.hero-subtitle { font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 3vw, 40px); color: #000; line-height: 1.1; }
+.hero-content .hero-subtitle { font-size: 24px; }
 .hero-body { font-family: var(--font-body); font-weight: 500; font-size: clamp(16px, 1.6vw, 18px); color: #000; line-height: 1.5; }
 .hero-cta {
   display: inline-flex;
@@ -550,7 +546,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .sauces-subtitle {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: clamp(16px, 1.5vw, 22px);
+  font-size: 18px;
   color: var(--white);
 }
 .sauces-badge {
@@ -664,7 +660,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   color: var(--pink);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  line-height: 1.12;
+  line-height: 42px;
   margin: 0;
 }
 .brioche-labs-tagline {
@@ -732,8 +728,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   margin-top: 1px;
 }
 .brioche-must-try {
-  font-family: var(--font-display);
-  font-size: clamp(36px, 4.8vw, 54px);
+  font-family: var(--font-must-try);
+  font-size: clamp(40px, 5.4vw, 64px);
   font-weight: 700;
   color: var(--pink);
   transform: rotate(-10deg);
@@ -756,7 +752,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .food-range-header p {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: clamp(14px, 1.4vw, 20px);
+  font-size: 18px;
   color: var(--dark);
   line-height: 1.5;
   max-width: 1000px;
@@ -789,6 +785,12 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   height: 100%;
   object-fit: cover;
   display: block;
+}
+.food-card-blue.food-card--split .food-card-media > img,
+.food-card-pink.food-card--split .food-card-media > img {
+  inset: auto;
+  right: 0;
+  bottom: 0;
 }
 .food-card-media--placeholder {
   background: linear-gradient(125deg, #fff4b8 0%, var(--yellow) 42%, #f0e060 100%);
@@ -886,11 +888,11 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .social-insta-btn {
   display: flex;
   align-items: center;
-  gap: 8px;
+  justify-content: center;
   background: var(--light-pink);
   border: 1px solid var(--pink);
   border-radius: 60px;
-  padding: 6px 14px 6px 6px;
+  padding: 6px 14px;
   font-family: var(--font-body);
   font-size: 15px;
   color: var(--pink);
@@ -898,7 +900,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   cursor: pointer;
 }
 .social-insta-btn:hover { background: var(--pink); color: #fff; }
-.social-insta-btn svg { width: 26px; height: 26px; }
 .social-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -909,6 +910,13 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   border-radius: 20px;
   overflow: hidden;
   position: relative;
+}
+.social-item > a {
+  position: absolute;
+  inset: 0;
+  display: block;
+  color: inherit;
+  text-decoration: none;
 }
 .social-item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s; }
 .social-item:hover img { transform: scale(1.05); }
@@ -953,7 +961,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .panel-subtitle {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: clamp(14px, 1.4vw, 20px);
+  font-size: 18px;
   color: var(--dark);
   margin-top: 8px;
 }
@@ -1089,7 +1097,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   border-bottom: 1px solid rgba(0,0,0,0.1);
   align-items: start;
 }
-.footer-brand .logo-tagline { color: var(--pink); margin-top: 4px; }
+.footer-brand .logo-tagline { color: var(--pink); margin-top: 4px; opacity: 0; }
 .footer-contact {
   margin-top: 16px;
   display: flex;
@@ -1551,7 +1559,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     filter: none;
   }
   .sauces .sauce-card-desc {
-    color: color-mix(in srgb, var(--pink) 42%, var(--dark) 58%);
+    color: var(--pink);
   }
 
   .brioche-inner { grid-template-columns: 1fr; gap: 32px; }
@@ -1720,123 +1728,106 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .beliefs-list li::before { content: "✦ "; color: var(--pink); font-weight: 700; }
 .brioche-inner { align-items: center; }
 
-/* ─── Merged from our-story.html inline <style> ─── */
+/* ─── Our Story (letter layout) ─── */
 .story-section {
-  background: var(--light-pink);
-  padding: 60px var(--layout-padding-x) 80px;
+  background: color-mix(in srgb, var(--light-pink) 55%, #fff 45%);
+  padding: 56px var(--layout-padding-x) 80px;
 }
 .story-card {
-  background: transparent;
-  border: none;
-  border-radius: 50px;
-  padding: 80px 100px 80px 100px;
   position: relative;
-  overflow: hidden;
-  max-width: var(--layout-max-width);
+  max-width: 880px;
   margin: 0 auto;
+  border: 3px solid var(--pink);
+  border-radius: 36px;
+  background: color-mix(in srgb, var(--light-pink) 72%, #fff 28%);
+  box-shadow: 0 20px 56px rgba(54, 46, 44, 0.07);
+  overflow: hidden;
+}
+.story-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background-image: url(/assets/logo-watermark-tile.svg);
+  background-repeat: repeat;
+  /* Padded tile SVG: more air between marks; ~same logotype size as old 96px tight tile */
+  background-size: 168px auto;
+  opacity: 0.02;
+  pointer-events: none;
+}
+.story-card__surface {
+  position: relative;
+  z-index: 1;
+  padding: clamp(32px, 4.5vw, 52px) clamp(24px, 4vw, 48px) clamp(36px, 4.5vw, 48px);
 }
 .story-body {
   font-family: var(--font-body);
   font-weight: 500;
-  font-size: clamp(15px, 1.4vw, 20px);
-  color: #000;
-  line-height: 1.7;
-  max-width: 900px;
-}
-.story-body p { margin-bottom: 20px; }
-.story-body p:last-child { margin-bottom: 0; }
-.story-body strong {
-  font-weight: 700;
-  display: block;
-  margin-top: 8px;
-  font-size: clamp(16px, 1.5vw, 22px);
-}
-.story-beliefs {
-  background: rgba(255,112,181,0.08);
-  border-left: 4px solid var(--pink);
-  border-radius: 0 12px 12px 0;
-  padding: 20px 24px;
-  margin: 24px 0;
-  max-width: 500px;
-}
-.story-beliefs p {
-  margin: 0;
-  font-family: var(--font-body);
-  font-weight: 600;
-  font-size: clamp(14px, 1.2vw, 18px);
+  font-size: clamp(15px, 1.35vw, 18px);
   color: var(--dark);
-  line-height: 1.8;
+  line-height: 1.75;
+  max-width: 56rem;
 }
-.story-sauce-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 24px;
-  margin: 32px 0;
-  max-width: 900px;
+.story-body p {
+  margin: 0 0 1.15em;
 }
-.story-sauce-item {
-  background: rgba(255,255,255,0.7);
-  border-radius: 20px;
-  padding: 20px 22px;
-  border: 1.5px solid rgba(255,112,181,0.25);
-}
-.story-sauce-item p {
-  font-family: var(--font-body);
-  font-size: clamp(13px, 1.1vw, 16px);
-  color: var(--dark);
-  line-height: 1.5;
-  margin: 0;
+.story-body p:last-of-type {
+  margin-bottom: 0;
+  font-weight: 900;
 }
 .story-regards {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-top: 56px;
-  gap: 32px;
+  gap: 24px 40px;
+  margin-top: 40px;
+  padding-top: 8px;
 }
 .story-regards-left {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
+  align-items: flex-start;
 }
 .story-regards-label {
   font-family: var(--font-body);
-  font-size: 22px;
-  font-weight: 600;
-  color: #000;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink);
 }
 .story-regards-logo {
-  height: 80px;
+  height: clamp(44px, 5vw, 56px);
   width: auto;
+  display: block;
 }
 .story-chef {
-  width: 260px;
-  height: 300px;
-  border-radius: 80px;
-  object-fit: cover;
+  width: min(220px, 38vw);
+  max-width: 100%;
+  height: auto;
+  max-height: 260px;
+  object-fit: contain;
+  object-position: bottom right;
   flex-shrink: 0;
-}
-.story-decor {
-  position: absolute;
-  width: 22px; height: 22px;
-  background: var(--pink);
-  clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
-  opacity: 0.5;
 }
 
 @media (max-width: 900px) {
-  .story-section { padding: 40px var(--layout-padding-x) 60px; }
-  .story-card { padding: 56px 48px; border-radius: 32px; }
-  .story-sauce-grid { grid-template-columns: 1fr; max-width: 100%; }
-  .story-regards { flex-direction: column; align-items: flex-start; }
-  .story-chef { width: 200px; height: 230px; border-radius: 50px; }
+  .story-section { padding: 40px var(--layout-padding-x) 64px; }
+  .story-card { border-radius: 28px; }
+  .story-regards {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .story-chef {
+    align-self: flex-end;
+    width: min(200px, 55vw);
+    max-height: 220px;
+  }
 }
 @media (max-width: 600px) {
-  .story-section { padding: 28px var(--layout-padding-x) 48px; }
-  .story-card { padding: 40px 24px; border-radius: 24px; }
-  .story-title {
-    font-size: clamp(40px, 12vw, 64px);
-    -webkit-text-stroke: 4px var(--sticker-outline);
-  }
-  .story-sauce-grid { grid-template-columns: 1fr; }
+  .story-section { padding: 32px var(--layout-padding-x) 52px; }
+  .story-card { border-radius: 22px; border-width: 2.5px; }
+  .story-card__surface { padding: 28px 20px 32px; }
+  .story-title { font-size: clamp(36px, 10vw, 48px); }
 }

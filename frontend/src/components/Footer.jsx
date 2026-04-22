@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { BUTTRD_INSTAGRAM_URL } from '../data/buttrdLinks.js'
 
 export function Footer({ aboutUsTo = '#' }) {
   return (
@@ -53,7 +54,9 @@ export function Footer({ aboutUsTo = '#' }) {
           <h4>Follow Us</h4>
           <ul>
             <li>
-              <a href="#">Instagram</a>
+              <a href={BUTTRD_INSTAGRAM_URL} target="_blank" rel="noreferrer">
+                Instagram
+              </a>
             </li>
             <li>
               <a href="#">Facebook</a>
