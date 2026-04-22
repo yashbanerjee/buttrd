@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="assets/favicon.png"/>
+  <title>Buttrd – Catering &amp; Cloud Kitchen</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+
+<!-- Mobile Nav Overlay -->
+<div class="nav-mobile" id="mobileNav">
+  <button class="nav-mobile-close" id="closeNav">&#x2715;</button>
+  <a href="index.html">HOME</a>
+  <a href="our-story.html">OUR STORY</a>
+  <a href="#">FEEDBACK</a>
+  <a href="#">OFFERS</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/buttrd-logo.png" class="logo-img" alt="Buttrd"/>
+    <span class="logo-tagline">Catering &amp; Cloud Kitchen</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="our-story.html">OUR STORY</a></li>
+    <li><a href="#">FEEDBACK</a></li>
+    <li><a href="#">OFFERS</a></li>
+  </ul>
+  <button class="nav-hamburger" id="openNav" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- CATERING HERO -->
+<section class="catering-hero">
+  <div class="catering-hero-inner">
+    <div class="catering-hero-content">
+      <span class="catering-headline">MAKE YOUR<br>EVENTS<br>BETTER WITH<br>BUTTR'D</span>
+      <div>
+        <p class="hero-subtitle">It All Started With Our Sauces</p>
+        <p class="hero-body" style="margin-top:10px">Our Signature range of sauces, made fresh with only the finest ingredients</p>
+      </div>
+      <a href="#catering-form" class="catering-cta">
+        <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+          <path d="M12 2C10.34 2 9 3.34 9 5V6H6C4.9 6 4 6.9 4 8V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8C20 6.9 19.1 6 18 6H15V5C15 3.34 13.66 2 12 2ZM12 4C12.55 4 13 4.45 13 5V6H11V5C11 4.45 11.45 4 12 4ZM12 10C13.1 10 14 10.9 14 12C14 13.1 13.1 14 12 14C10.9 14 10 13.1 10 12C10 10.9 10.9 10 12 10ZM8 17C8 15.34 9.79 14 12 14C14.21 14 16 15.34 16 17H8Z" fill="black"/>
+        </svg>
+        Make Your Event Better
+      </a>
+    </div>
+    <div class="catering-hero-images">
+      <div class="catering-hero-img">
+        <img src="assets/catering-hero.png" alt="Catering spread"/>
+      </div>
+      <div class="catering-hero-img">
+        <img src="assets/hero-food.png" alt="Event food"/>
+      </div>
+      <div class="catering-hero-img">
+        <img src="assets/melts-wraps.png" alt="Catering wraps"/>
+      </div>
+      <div class="catering-hero-img">
+        <img src="assets/social-1.png" alt="Catering event"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave: yellow to white -->
+<div class="wave" style="background:#fff">
+  <svg viewBox="0 490 1441 177" preserveAspectRatio="none" height="130" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#FFD61F" d="M724.457 0L0 0L0 576.403L2.638 574.438C126.882 629.262 123.881 532.618 229.298 546.839C334.714 561.059 348.994 663.972 464.143 666.966C571.834 669.772 594.755 499.686 719.272 574.438C811.501 629.824 863.345 530.279 968.398 567.328C1073.815 604.47 1147.306 698.775 1255.907 656.113C1348.59 619.719 1336.311 537.015 1441 556.756L1441 0L724.366 0Z"/>
+  </svg>
+</div>
+
+<!-- CATERING FORM -->
+<section class="catering-form-section" id="catering-form">
+  <div class="catering-form-card">
+    <div class="catering-form-logo">
+      <img src="assets/buttrd-logo.png" style="height:60px;width:auto" alt="Buttrd"/>
+      <span class="catering-form-subtitle-badge">Catering Services</span>
+    </div>
+    <h2 class="catering-form-title">Catering Form</h2>
+    <p class="catering-form-desc">Tell us about your event and we'll take care of the rest</p>
+    <form class="catering-form-fields" onsubmit="return false">
+      <div class="form-field">
+        <label>Name</label>
+        <input type="text" placeholder="Enter your name"/>
+      </div>
+      <div class="form-field">
+        <label>Email</label>
+        <input type="email" placeholder="Enter your email"/>
+      </div>
+      <div class="form-field">
+        <label>Phone</label>
+        <input type="tel" placeholder="Enter your phone number"/>
+      </div>
+      <div class="form-field">
+        <label>Number of people</label>
+        <input type="number" placeholder="Enter the number of people for the event"/>
+      </div>
+      <div class="form-field">
+        <label>Date &amp; Time of the event</label>
+        <input type="text" placeholder="Enter the date and time of the event"/>
+      </div>
+      <div class="form-field">
+        <label>Area / Location to cater</label>
+        <input type="text" placeholder="Enter the area / location"/>
+      </div>
+      <div class="form-actions" style="margin-top:8px">
+        <button type="submit" class="btn-submit" style="background:var(--pink)">Submit</button>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- CATERING MENU -->
+<section class="catering-menu-section">
+  <div style="max-width:1280px;margin:0 auto">
+    <h2 class="catering-menu-title">CATERING MENU</h2>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="assets/catering-hero.png" alt="Wings and Tenders"/></div>
+        <div class="menu-card-label">
+          <span>Wings &amp; Tenders</span>
+          <svg class="menu-card-arrow" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="assets/hero-food.png" alt="Wings Bundles"/></div>
+        <div class="menu-card-label">
+          <span>Wings Bundles</span>
+          <svg class="menu-card-arrow" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="assets/social-1.png" alt="Appetizers"/></div>
+        <div class="menu-card-label">
+          <span>Appetizers</span>
+          <svg class="menu-card-arrow" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="assets/menu-item.png" alt="Sides and Extras"/></div>
+        <div class="menu-card-label">
+          <span>Sides &amp; Extras</span>
+          <svg class="menu-card-arrow" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="assets/melts-wraps.png" alt="Burgers"/></div>
+        <div class="menu-card-label">
+          <span>Burgers</span>
+          <svg class="menu-card-arrow" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="assets/brioche-rolls-1.png" alt="Sandwiches and Wraps"/></div>
+        <div class="menu-card-label">
+          <span>Sandwiches &amp; Wraps</span>
+          <svg class="menu-card-arrow" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="assets/brioche-rolls-2.png" alt="Kids Menu"/></div>
+        <div class="menu-card-label">
+          <span>Kids Menu</span>
+          <svg class="menu-card-arrow" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="assets/desserts-1.png" alt="Salads"/></div>
+        <div class="menu-card-label">
+          <span>Salads</span>
+          <svg class="menu-card-arrow" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-card-img"><img src="assets/desserts-2.png" alt="Desserts"/></div>
+        <div class="menu-card-label">
+          <span>Desserts &amp; Drinks</span>
+          <svg class="menu-card-arrow" viewBox="0 0 24 24" fill="none"><path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ + SOCIAL SHARED WITH HOME -->
+<div class="feedback-faq">
+  <div class="feedback-panel">
+    <div>
+      <h2 class="panel-title">Feedback Form</h2>
+      <p class="panel-subtitle">We'd love to hear from you</p>
+    </div>
+    <form class="form-group" onsubmit="return false">
+      <div class="form-field"><label>Name</label><input type="text" placeholder="Enter your name"/></div>
+      <div class="form-field"><label>Email</label><input type="email" placeholder="Enter your email"/></div>
+      <div class="form-field"><label>Phone</label><input type="tel" placeholder="Enter your phone number"/></div>
+      <div class="toggle-row">
+        <div class="toggle" onclick="this.classList.toggle('on')"></div>
+        <span class="toggle-label">I wish to stay anonymous</span>
+      </div>
+      <div class="form-field"><label>Your Feedback</label><textarea placeholder="Tell us what you think…"></textarea></div>
+      <div class="form-actions"><button type="submit" class="btn-submit">Send Feedback</button></div>
+    </form>
+  </div>
+  <div class="faq-panel">
+    <div>
+      <h2 class="panel-title">FAQ</h2>
+      <p class="panel-subtitle">Got questions? We've got answers.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-question" onclick="toggleFaq(this)">How do I place a catering order?<span class="faq-icon">+</span></div>
+        <div class="faq-answer">To place a catering order, visit our catering page or contact our team at (555) 123-4567. We require at least 48 hours' notice for all catering orders.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What types of cuisine do you offer?<span class="faq-icon">+</span></div>
+        <div class="faq-answer">We offer wings, brioche rolls, burgers, wraps, salads, and a full desserts and drinks menu — all made fresh daily.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Do you offer catering services?<span class="faq-icon">+</span></div>
+        <div class="faq-answer">Yes! We cater events of all sizes — from intimate gatherings to large corporate functions. Fill out the form above to get started.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What is a cloud kitchen?<span class="faq-icon">+</span></div>
+        <div class="faq-answer">A cloud kitchen is a delivery-focused professional kitchen that lets us serve great food without a dine-in space — keeping quality high and costs low.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SOCIAL CIRCLE -->
+<section class="social">
+  <div class="section-inner">
+    <div class="social-header">
+      <h2>Join our social circle</h2>
+      <a href="https://instagram.com/buttrd.me" target="_blank" class="social-insta-btn">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+        </svg>
+        @Buttrd.me
+      </a>
+    </div>
+    <div class="social-grid">
+      <div class="social-item"><img src="assets/social-1.png"      alt="Instagram post"/></div>
+      <div class="social-item"><img src="assets/catering-hero.png" alt="Instagram post"/></div>
+      <div class="social-item"><img src="assets/melts-wraps.png"   alt="Instagram post"/></div>
+      <div class="social-item"><img src="assets/hero-food.png"     alt="Instagram post"/></div>
+      <div class="social-item"><img src="assets/desserts-1.png"    alt="Instagram post"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/buttrd-logo.png" class="logo-img" alt="Buttrd"/>
+      <span class="logo-tagline" style="margin-top:4px">Catering &amp; Cloud Kitchen</span>
+      <div class="footer-contact" style="margin-top:16px">
+        <span>+971 56 683 3534</span>
+        <span>Info@buttrdme.com</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Useful Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Sale</a></li>
+        <li><a href="#">About us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Delivery info</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kitchen</h4>
+      <p>Mon – Fri: 8:00 – 21:00</p>
+      <p>Sat: 9:30 – 18:00</p>
+      <p>Sun: 9:30 – 16:00</p>
+      <p style="margin-top:12px">1501 Main St, Ste 50<br>Tewksbury MA 01876</p>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">TikTok</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-links">
+      <a href="#">Cookies</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms of use</a>
+    </div>
+    <span class="footer-copyright">Copyright 2026 | Buttrd</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('openNav').addEventListener('click',()=>{
+    document.getElementById('mobileNav').classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+  document.getElementById('closeNav').addEventListener('click',()=>{
+    document.getElementById('mobileNav').classList.remove('open');
+    document.body.style.overflow='';
+  });
+  function toggleFaq(el){
+    const item=el.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>

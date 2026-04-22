@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="assets/favicon.png"/>
+  <title>Buttrd – Our Story</title>
+  <link rel="stylesheet" href="styles.css"/>
+  <style>
+    .story-section {
+      background: var(--light-pink);
+      padding: 60px 80px 80px;
+    }
+    .story-card {
+      background: transparent;
+      border: none;
+      border-radius: 50px;
+      padding: 80px 100px 80px 100px;
+      position: relative;
+      overflow: hidden;
+      max-width: 1281px;
+      margin: 0 auto;
+    }
+    .story-body {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: clamp(15px, 1.4vw, 20px);
+      color: #000;
+      line-height: 1.7;
+      max-width: 900px;
+    }
+    .story-body p { margin-bottom: 20px; }
+    .story-body p:last-child { margin-bottom: 0; }
+    .story-body strong {
+      font-weight: 700;
+      display: block;
+      margin-top: 8px;
+      font-size: clamp(16px, 1.5vw, 22px);
+    }
+    .story-beliefs {
+      background: rgba(255,112,181,0.08);
+      border-left: 4px solid var(--pink);
+      border-radius: 0 12px 12px 0;
+      padding: 20px 24px;
+      margin: 24px 0;
+      max-width: 500px;
+    }
+    .story-beliefs p {
+      margin: 0;
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: clamp(14px, 1.2vw, 18px);
+      color: var(--dark);
+      line-height: 1.8;
+    }
+    .story-sauce-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 24px;
+      margin: 32px 0;
+      max-width: 900px;
+    }
+    .story-sauce-item {
+      background: rgba(255,255,255,0.7);
+      border-radius: 20px;
+      padding: 20px 22px;
+      border: 1.5px solid rgba(255,112,181,0.25);
+    }
+    .story-sauce-item p {
+      font-family: var(--font-body);
+      font-size: clamp(13px, 1.1vw, 16px);
+      color: var(--dark);
+      line-height: 1.5;
+      margin: 0;
+    }
+    .story-regards {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-top: 56px;
+      gap: 32px;
+    }
+    .story-regards-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .story-regards-label {
+      font-family: var(--font-body);
+      font-size: 22px;
+      font-weight: 600;
+      color: #000;
+    }
+    .story-regards-logo {
+      height: 80px;
+      width: auto;
+    }
+    .story-chef {
+      width: 260px;
+      height: 300px;
+      border-radius: 80px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .story-decor {
+      position: absolute;
+      width: 22px; height: 22px;
+      background: var(--pink);
+      clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
+      opacity: 0.5;
+    }
+
+    @media (max-width: 900px) {
+      .story-section { padding: 40px 32px 60px; }
+      .story-card { padding: 56px 48px; border-radius: 32px; }
+      .story-sauce-grid { grid-template-columns: 1fr; max-width: 100%; }
+      .story-regards { flex-direction: column; align-items: flex-start; }
+      .story-chef { width: 200px; height: 230px; border-radius: 50px; }
+    }
+    @media (max-width: 600px) {
+      .story-section { padding: 28px 16px 48px; }
+      .story-card { padding: 40px 24px; border-radius: 24px; }
+      .story-title {
+        font-size: clamp(40px, 12vw, 64px);
+        -webkit-text-stroke: 4px var(--sticker-outline);
+      }
+      .story-sauce-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Mobile Nav Overlay -->
+<div class="nav-mobile" id="mobileNav">
+  <button class="nav-mobile-close" id="closeNav">&#x2715;</button>
+  <a href="index.html">HOME</a>
+  <a href="our-story.html" class="active">OUR STORY</a>
+  <a href="#">FEEDBACK</a>
+  <a href="#">OFFERS</a>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="index.html" class="nav-logo">
+    <img src="assets/buttrd-logo.png" class="logo-img" alt="Buttrd"/>
+    <span class="logo-tagline">Catering &amp; Cloud Kitchen</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">HOME</a></li>
+    <li><a href="our-story.html" class="active">OUR STORY</a></li>
+    <li><a href="#">FEEDBACK</a></li>
+    <li><a href="#">OFFERS</a></li>
+  </ul>
+  <button class="nav-hamburger" id="openNav" aria-label="Open menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- OUR STORY MAIN -->
+<section class="story-section">
+  <div class="story-card">
+    <!-- Decorative stars -->
+    <span class="story-decor" style="top:60px;right:180px;width:18px;height:18px;opacity:0.3"></span>
+    <span class="story-decor" style="bottom:200px;left:60px;width:14px;height:14px;opacity:0.25"></span>
+
+    <h1 class="story-title">Our Story</h1>
+
+    <div class="story-body">
+      <p>Buttrd is built on a simple idea: take the comfort food people already love — and reinvent it in bold, unexpected ways.<br>We don't start with dishes. We start with flavour.</p>
+
+      <p>Everything on our menu is built around signature sauces — Buttrd, Beef Chilli, and Birria — developed in-house and designed to transform familiar formats like sandwiches, pasta, and rice bowls into something more addictive, more indulgent, and more memorable.</p>
+
+      <p>This isn't about reinventing food for the sake of it.<br>It is about doing simple things better — with more intention, more depth, and more flavour.</p>
+
+      <strong>What We Believe</strong>
+      <div class="story-beliefs">
+        <p>Flavour comes first — always<br>A great sauce can change everything<br>Simple food doesn't have to be boring</p>
+      </div>
+    </div>
+
+    <!-- Sauce Cards -->
+    <div class="story-sauce-grid">
+      <div class="story-sauce-item">
+        <h4>Buttrd Sauce</h4>
+        <p>Our take on butter chicken, with a perfect balance of sweetness and a gentle tang, reimagined the Buttrd way. Rich, creamy, and indulgent.</p>
+      </div>
+      <div class="story-sauce-item">
+        <h4>Beef Chilli</h4>
+        <p>Slow-cooked beef in a rich, savoury chilli con carne, packed with serious flavour in every bite. Messy, rich and hearty.</p>
+      </div>
+      <div class="story-sauce-item">
+        <h4>Beef Birria</h4>
+        <p>Slow-braised beef soaked in rich, spiced broth, packed with warmth in every bite. Deep, comforting, and worth every drip.</p>
+      </div>
+    </div>
+
+    <!-- Regards -->
+    <div class="story-regards">
+      <div class="story-regards-left">
+        <span class="story-regards-label">Regards From</span>
+        <img src="assets/buttrd-logo.png" class="story-regards-logo" alt="Buttrd"/>
+      </div>
+      <img src="assets/chef-illustration.png" class="story-chef" alt="Buttrd chef"/>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL CIRCLE -->
+<section class="social">
+  <div class="section-inner">
+    <div class="social-header">
+      <h2>Join our social circle</h2>
+      <a href="https://instagram.com/buttrd.me" target="_blank" class="social-insta-btn">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
+          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
+          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+          <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
+        </svg>
+        @Buttrd.me
+      </a>
+    </div>
+    <div class="social-grid">
+      <div class="social-item"><img src="assets/social-1.png"      alt="Instagram post"/></div>
+      <div class="social-item"><img src="assets/catering-hero.png" alt="Instagram post"/></div>
+      <div class="social-item"><img src="assets/brioche-bread.png" alt="Instagram post"/></div>
+      <div class="social-item"><img src="assets/melts-wraps.png"   alt="Instagram post"/></div>
+      <div class="social-item"><img src="assets/desserts-1.png"    alt="Instagram post"/></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEEDBACK + FAQ -->
+<div class="feedback-faq">
+  <div class="feedback-panel">
+    <div>
+      <h2 class="panel-title">Feedback Form</h2>
+      <p class="panel-subtitle">We'd love to hear from you</p>
+    </div>
+    <form class="form-group" onsubmit="return false">
+      <div class="form-field"><label>Name</label><input type="text" placeholder="Enter your name"/></div>
+      <div class="form-field"><label>Email</label><input type="email" placeholder="Enter your email"/></div>
+      <div class="form-field"><label>Phone</label><input type="tel" placeholder="Enter your phone number"/></div>
+      <div class="toggle-row">
+        <div class="toggle" onclick="this.classList.toggle('on')"></div>
+        <span class="toggle-label">I wish to stay anonymous</span>
+      </div>
+      <div class="form-field"><label>Your Feedback</label><textarea placeholder="Tell us what you think…"></textarea></div>
+      <div class="form-actions"><button type="submit" class="btn-submit">Send Feedback</button></div>
+    </form>
+  </div>
+  <div class="faq-panel">
+    <div>
+      <h2 class="panel-title">FAQ</h2>
+      <p class="panel-subtitle">Got questions? We've got answers.</p>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-question" onclick="toggleFaq(this)">How do I place a catering order?<span class="faq-icon">+</span></div>
+        <div class="faq-answer">To place a catering order, visit our catering page or contact our team at (555) 123-4567. We require at least 48 hours' notice for all catering orders.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What types of cuisine do you offer?<span class="faq-icon">+</span></div>
+        <div class="faq-answer">We offer signature Buttrd sauces, brioche rolls, rice and pasta bowls, melts and wraps, and a full desserts and drinks menu.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">Do you offer catering services?<span class="faq-icon">+</span></div>
+        <div class="faq-answer">Yes! We cater events of all sizes — from intimate gatherings to large corporate functions.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-question" onclick="toggleFaq(this)">What is a cloud kitchen?<span class="faq-icon">+</span></div>
+        <div class="faq-answer">A cloud kitchen is a delivery-focused professional kitchen that lets us maintain quality without a traditional dine-in space.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <img src="assets/buttrd-logo.png" class="logo-img" alt="Buttrd"/>
+      <span class="logo-tagline" style="margin-top:4px">Catering &amp; Cloud Kitchen</span>
+      <div class="footer-contact" style="margin-top:16px">
+        <span>+971 56 683 3534</span>
+        <span>Info@buttrdme.com</span>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Useful Links</h4>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="#">Sale</a></li>
+        <li><a href="our-story.html">About us</a></li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">Delivery info</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kitchen</h4>
+      <p>Mon – Fri: 8:00 – 21:00</p>
+      <p>Sat: 9:30 – 18:00</p>
+      <p>Sun: 9:30 – 16:00</p>
+      <p style="margin-top:12px">1501 Main St, Ste 50<br>Tewksbury MA 01876</p>
+    </div>
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">TikTok</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-links">
+      <a href="#">Cookies</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms of use</a>
+    </div>
+    <span class="footer-copyright">Copyright 2026 | Buttrd</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('openNav').addEventListener('click',()=>{
+    document.getElementById('mobileNav').classList.add('open');
+    document.body.style.overflow='hidden';
+  });
+  document.getElementById('closeNav').addEventListener('click',()=>{
+    document.getElementById('mobileNav').classList.remove('open');
+    document.body.style.overflow='';
+  });
+  function toggleFaq(el){
+    const item=el.parentElement;
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen) item.classList.add('open');
+  }
+</script>
+</body>
+</html>

@@ -4,6 +4,7 @@ import { RootLayout } from './components/RootLayout.jsx'
 import { CateringPage } from './pages/CateringPage.jsx'
 import { HomePage } from './pages/HomePage.jsx'
 import { OurStoryPage } from './pages/OurStoryPage.jsx'
+import { OffersPage } from './pages/OffersPage.jsx'
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/catering" element={<CateringPage />} />
             <Route path="/our-story" element={<OurStoryPage />} />
+            <Route path="/offers" element={<OffersPage />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Route>
         </Routes>

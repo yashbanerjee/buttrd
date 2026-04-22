@@ -80,7 +80,7 @@ export function CateringPage() {
         </div>
       </section>
 
-      <WaveDivider background="#fff" pathFill="#FFD61F" />
+      <WaveDivider background="#fff" pathFill="var(--yellow)" />
 
       <section className="catering-form-section" id="catering-form">
         <div className="catering-form-card">

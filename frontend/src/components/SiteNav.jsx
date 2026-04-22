@@ -1,4 +1,5 @@
 import { Link, NavLink } from 'react-router-dom'
+import { FeedbackNavLink } from './FeedbackNavLink.jsx'
 
 const linkClass = ({ isActive }) => (isActive ? 'active' : undefined)
 
@@ -17,23 +18,17 @@ export function SiteNav({ onOpenMenu }) {
             </NavLink>
           </li>
           <li>
-            <NavLink to="/catering" className={linkClass}>
-              CATERING
-            </NavLink>
-          </li>
-          <li>
-            <a href="#">MENU</a>
-          </li>
-          <li>
             <NavLink to="/our-story" className={linkClass}>
               OUR STORY
             </NavLink>
           </li>
           <li>
-            <a href="#">FEEDBACK</a>
+            <FeedbackNavLink />
           </li>
           <li>
-            <a href="#">OFFERS</a>
+            <NavLink to="/offers" className={linkClass}>
+              OFFERS
+            </NavLink>
           </li>
         </ul>
         <button type="button" className="nav-hamburger" onClick={onOpenMenu} aria-label="Open menu">

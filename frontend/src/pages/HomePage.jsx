@@ -52,12 +52,15 @@ export function HomePage() {
             </Link>
           </div>
           <div className="hero-image">
-            <img src="/assets/hero-food.png" alt="Delicious Buttrd food spread" />
+            <img
+              src="/assets/hero-home.png"
+              alt="Stack of Buttrd brioche sandwiches with chilli cheese hot dog, paneer, beef chilli, and chicken"
+            />
           </div>
         </div>
       </section>
 
-      <WaveDivider background="var(--pink)" pathFill="#FFD61F" />
+      <WaveDivider background="var(--pink)" pathFill="var(--yellow)" />
 
       <section className="sauces">
         <div className="section-inner">
@@ -73,13 +76,14 @@ export function HomePage() {
               <img src="/assets/buttrd-logo.png" style={{ height: '52px', width: 'auto' }} alt="Buttrd" />
               <span
                 style={{
-                  display: 'block',
-                  fontFamily: 'var(--font-hand)',
+                  display: 'none',
+                  fontFamily: 'var(--font-display)',
                   fontSize: '55px',
                   fontWeight: 700,
                   color: 'var(--yellow)',
                   transform: 'rotate(-10deg) translateX(20px)',
                 }}
+                aria-hidden
               >
                 Sauces
               </span>
@@ -89,7 +93,7 @@ export function HomePage() {
           <div className="sauces-cards">
             <div className="sauce-card">
               <div className="sauce-card-img">
-                <img src="/assets/catering-hero.png" alt="Buttrd Sauce" />
+                <img src="/assets/sauce-buttrd.png" alt="Buttrd Sauce" />
               </div>
               <p className="sauce-card-title">Buttrd Sauce</p>
               <p className="sauce-card-label">Our Take:</p>
@@ -100,7 +104,7 @@ export function HomePage() {
             </div>
             <div className="sauce-card">
               <div className="sauce-card-img">
-                <img src="/assets/melts-wraps.png" alt="Beef Chilli" />
+                <img src="/assets/sauce-beef-chilli.png" alt="Beef Chilli" />
               </div>
               <p className="sauce-card-title">Beef Chilli</p>
               <p className="sauce-card-label">Our Take:</p>
@@ -111,7 +115,7 @@ export function HomePage() {
             </div>
             <div className="sauce-card">
               <div className="sauce-card-img">
-                <img src="/assets/brioche-bread.png" alt="Beef Birria" />
+                <img src="/assets/sauce-beef-birria.png" alt="Beef Birria" />
               </div>
               <p className="sauce-card-title">Beef Birria</p>
               <p className="sauce-card-label">Our Take:</p>
@@ -124,11 +128,11 @@ export function HomePage() {
         </div>
       </section>
 
-      <WaveDivider background="var(--blue)" pathFill="#FF70B5" />
+      <WaveDivider background="var(--blue)" pathFill="var(--pink)" />
 
       <BriocheLabsSection />
 
-      <WaveDivider background="#fff" pathFill="#A0E3F7" />
+      <WaveDivider background="#fff" pathFill="var(--blue)" />
 
       <section className="food-range">
         <div className="section-inner">

@@ -6,12 +6,12 @@ export function Footer({ aboutUsTo = '#' }) {
       <div className="footer-inner">
         <div className="footer-brand">
           <img src="/assets/buttrd-logo.png" className="logo-img" alt="Buttrd" />
-          <span className="logo-tagline" style={{ color: 'rgba(0,0,0,0.55)', marginTop: '4px' }}>
+          <span className="logo-tagline" style={{ marginTop: '4px' }}>
             Catering &amp; Cloud Kitchen
           </span>
           <div className="footer-contact" style={{ marginTop: '16px' }}>
-            <span>+ 1 526 220 0459</span>
-            <span>email@example.com</span>
+            <span>+971 56 683 3534</span>
+            <span>Info@buttrdme.com</span>
           </div>
         </div>
         <div className="footer-col">

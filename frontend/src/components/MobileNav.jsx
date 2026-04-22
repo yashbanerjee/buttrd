@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { FeedbackNavLink } from './FeedbackNavLink.jsx'
 
 const linkClass = ({ isActive }) => (isActive ? 'active' : undefined)
 
@@ -11,21 +12,13 @@ export function MobileNav({ isOpen, onClose }) {
       <NavLink to="/" className={linkClass} onClick={onClose} end>
         HOME
       </NavLink>
-      <NavLink to="/catering" className={linkClass} onClick={onClose}>
-        CATERING
-      </NavLink>
-      <a href="#" onClick={onClose}>
-        MENU
-      </a>
       <NavLink to="/our-story" className={linkClass} onClick={onClose}>
         OUR STORY
       </NavLink>
-      <a href="#" onClick={onClose}>
-        FEEDBACK
-      </a>
-      <a href="#" onClick={onClose}>
+      <FeedbackNavLink onNavigate={onClose} />
+      <NavLink to="/offers" className={linkClass} onClick={onClose}>
         OFFERS
-      </a>
+      </NavLink>
     </div>
   )
 }
