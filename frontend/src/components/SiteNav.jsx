@@ -3,7 +3,7 @@ import { FeedbackNavLink } from './FeedbackNavLink.jsx'
 
 const linkClass = ({ isActive }) => (isActive ? 'active' : undefined)
 
-export function SiteNav({ onOpenMenu }) {
+export function SiteNav() {
   return (
     <nav className="nav">
       <div className="nav-inner">
@@ -31,11 +31,6 @@ export function SiteNav({ onOpenMenu }) {
             </NavLink>
           </li>
         </ul>
-        <button type="button" className="nav-hamburger" onClick={onOpenMenu} aria-label="Open menu">
-          <span />
-          <span />
-          <span />
-        </button>
       </div>
     </nav>
   )

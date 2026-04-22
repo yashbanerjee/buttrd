@@ -96,7 +96,6 @@ export function HomePage() {
                 <img src="/assets/sauce-buttrd.png" alt="Buttrd Sauce" />
               </div>
               <p className="sauce-card-title">Buttrd Sauce</p>
-              <p className="sauce-card-label">Our Take:</p>
               <p className="sauce-card-desc">
                 Our take on butter chicken, with a perfect balance of sweetness and a gentle tang, reimagined the
                 Buttrd way. Rich, creamy, and indulgent.
@@ -107,7 +106,6 @@ export function HomePage() {
                 <img src="/assets/sauce-beef-chilli.png" alt="Beef Chilli" />
               </div>
               <p className="sauce-card-title">Beef Chilli</p>
-              <p className="sauce-card-label">Our Take:</p>
               <p className="sauce-card-desc">
                 Slow-cooked beef in a rich, savoury chilli con carne, packed with serious flavour in every bite. Messy,
                 rich and hearty.
@@ -118,7 +116,6 @@ export function HomePage() {
                 <img src="/assets/sauce-beef-birria.png" alt="Beef Birria" />
               </div>
               <p className="sauce-card-title">Beef Birria</p>
-              <p className="sauce-card-label">Our Take:</p>
               <p className="sauce-card-desc">
                 Slow-braised beef soaked in rich, spiced broth, packed with warmth in every bite. Deep, comforting, and
                 worth every drip.
@@ -153,6 +150,9 @@ export function HomePage() {
                   Rolls
                 </h3>
                 <p>Soft, buttery rolls built to carry our sauces—perfect when you want comfort you can hold in two hands.</p>
+                <Link to="/offers" className="food-card-cta">
+                  order now
+                </Link>
               </div>
               <div className="food-card-media food-card-media--placeholder" aria-label="Brioche rolls photo placeholder">
                 <span className="food-card-media__placeholder-label" aria-hidden="true">
@@ -167,6 +167,9 @@ export function HomePage() {
                 <p>
                   Rice and pasta become a canvas: the same sauces you love, coating every forkful with depth and warmth.
                 </p>
+                <Link to="/offers" className="food-card-cta">
+                  order now
+                </Link>
               </div>
               <div className="food-card-media">
                 <img src="/assets/catering-hero.png" alt="Rice and pasta bowls" />
@@ -180,6 +183,9 @@ export function HomePage() {
                   Messy-in-the-best-way layers—paneer, beef, or whatever the day calls for—so the first bite is never
                   quite what you expected.
                 </p>
+                <Link to="/offers" className="food-card-cta">
+                  order now
+                </Link>
               </div>
               <div className="food-card-media">
                 <img src="/assets/melts-wraps.png" alt="Melts and Wraps" />
@@ -190,6 +196,9 @@ export function HomePage() {
               <div className="food-card-text">
                 <h3>Desserts &amp; Drinks</h3>
                 <p>Round off the meal with something sweet or cold—because indulgence shouldn&apos;t stop at the main event.</p>
+                <Link to="/offers" className="food-card-cta">
+                  order now
+                </Link>
               </div>
               <div
                 className="food-card-media food-card-media--placeholder food-card-media--placeholder-ice"

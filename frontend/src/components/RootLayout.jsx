@@ -1,12 +1,11 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
 import { FirstVisitSplash, shouldShowFirstVisitSplash } from './FirstVisitSplash.jsx'
-import { MobileNav } from './MobileNav.jsx'
+import { MobileTabBar } from './MobileTabBar.jsx'
 import { SiteNav } from './SiteNav.jsx'
 
 export function RootLayout() {
   const { pathname } = useLocation()
-  const [mobileOpen, setMobileOpen] = useState(false)
   const [showSplash, setShowSplash] = useState(shouldShowFirstVisitSplash)
 
   useLayoutEffect(() => {
@@ -14,17 +13,17 @@ export function RootLayout() {
   }, [pathname])
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen || showSplash ? 'hidden' : ''
+    document.body.style.overflow = showSplash ? 'hidden' : ''
     return () => {
       document.body.style.overflow = ''
     }
-  }, [mobileOpen, showSplash])
+  }, [showSplash])
 
   return (
     <>
-      <MobileNav isOpen={mobileOpen} onClose={() => setMobileOpen(false)} />
-      <SiteNav onOpenMenu={() => setMobileOpen(true)} />
+      <SiteNav />
       <Outlet />
+      <MobileTabBar />
       {showSplash ? <FirstVisitSplash onComplete={() => setShowSplash(false)} /> : null}
     </>
   )
