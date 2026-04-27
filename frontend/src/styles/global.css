@@ -514,13 +514,21 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   position: relative;
   height: 700px;
   display: flex;
-  align-items: flex-end;
+  align-items: center;
+  justify-content: center;
 }
 .hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  object-fit: contain;
   object-position: center;
+  border-radius: 28px;
+  border: 2px solid color-mix(in srgb, var(--pink) 38%, white);
+  box-shadow:
+    0 4px 12px rgba(54, 46, 44, 0.1),
+    0 18px 44px -8px rgba(255, 112, 181, 0.32);
 }
 
 /* ─── SECTION SHARED ─── */
@@ -1489,10 +1497,14 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     );
     min-height: 52vh;
     max-height: calc(100svh - 120px);
-    align-items: stretch;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
   }
   .hero-image img {
     object-position: center center;
+    border-radius: 24px;
   }
   .hero-content {
     order: 1;
@@ -1720,7 +1732,19 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 
 /* ─── Merged from index.html inline <style> (home) ─── */
-.hero-image img { height: 100%; object-fit: cover; object-position: center; }
+.hero-image img {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 28px;
+  border: 2px solid color-mix(in srgb, var(--pink) 38%, white);
+  box-shadow:
+    0 4px 12px rgba(54, 46, 44, 0.1),
+    0 18px 44px -8px rgba(255, 112, 181, 0.32);
+}
 .story-stack { display: flex; flex-direction: column; gap: 16px; }
 .story-stack .brioche-desc { margin: 0; }
 .beliefs-list { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 10px; }
@@ -1803,12 +1827,12 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   display: block;
 }
 .story-chef {
-  width: min(220px, 38vw);
+  width: min(280px, 52vw);
   max-width: 100%;
   height: auto;
   max-height: 260px;
   object-fit: contain;
-  object-position: bottom right;
+  object-position: center;
   flex-shrink: 0;
 }
 

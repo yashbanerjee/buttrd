@@ -15,9 +15,14 @@ export const homeFaqs = [
       'Yes! We offer full catering services for events of all sizes — from intimate gatherings to large corporate events.',
   },
   {
-    question: 'What is a cloud kitchen?',
+    question: 'Do you offer delivery or pickup?',
     answer:
-      'A cloud kitchen is a professional food prep facility focused exclusively on delivery orders, allowing us to maintain quality without a traditional dine-in space.',
+      'Both. Get it delivered to your door or place an order for pickup. Pickup is available on Noon and our website.',
+  },
+  {
+    question: "What if there's an issue with my order?",
+    answer:
+      'Contact us right away through the platform you ordered on (Noon, our website, or your delivery app) or email Info@buttrdme.com—we will help sort it out.',
   },
 ]
 
@@ -38,9 +43,14 @@ export const cateringFaqs = [
       'Yes! We cater events of all sizes — from intimate gatherings to large corporate functions. Fill out the form above to get started.',
   },
   {
-    question: 'What is a cloud kitchen?',
+    question: 'Do you offer delivery or pickup?',
     answer:
-      'A cloud kitchen is a delivery-focused professional kitchen that lets us serve great food without a dine-in space — keeping quality high and costs low.',
+      'Both. Get it delivered to your door or place an order for pickup. Pickup is available on Noon and our website.',
+  },
+  {
+    question: "What if there's an issue with my order?",
+    answer:
+      'Contact us right away through the platform you ordered on (Noon, our website, or your delivery app) or email Info@buttrdme.com—we will help sort it out.',
   },
 ]
 
@@ -61,8 +71,13 @@ export const ourStoryFaqs = [
       'Yes! We cater events of all sizes — from intimate gatherings to large corporate functions.',
   },
   {
-    question: 'What is a cloud kitchen?',
+    question: 'Do you offer delivery or pickup?',
     answer:
-      'A cloud kitchen is a delivery-focused professional kitchen that lets us maintain quality without a traditional dine-in space.',
+      'Both. Get it delivered to your door or place an order for pickup. Pickup is available on Noon and our website.',
+  },
+  {
+    question: "What if there's an issue with my order?",
+    answer:
+      'Contact us right away through the platform you ordered on (Noon, our website, or your delivery app) or email Info@buttrdme.com—we will help sort it out.',
   },
 ]

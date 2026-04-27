@@ -22,19 +22,15 @@ export function BriocheLabsSection() {
             />
           </div>
           <div className="brioche-content brioche-content--labs">
-            <h2 className="brioche-labs-title">
-              THE BRIOCHE LABS - The Perfect Vessel for The Perfect Dip
-            </h2>
+            <h2 className="brioche-labs-title">The Bases</h2>
             <p className="brioche-labs-tagline">
-              A signature sauce is only as good as the grain that carries it.
-              That’s why we’re obsessive about our bread. It isn't just a
-              pairing; it’s a revelation-toasted to a golden precision that
-              shatters at the first bite, only to melt away like butter on a hot
-              pan. It is the silent hero of the Buttrd experience, designed to
-              soak up every drop of our Buttrd, Beef Chilli, and Birria
-              signatures. When the crunch of the crust meets the depth of the
-              simmer, that’s when you realize: this isn't just a meal. It’s a
-              masterpiece of texture.
+              Great flavour needs the right foundation. From soft, buttery
+              brioche to crisp, herbed focaccia and from creamy pastas to
+              comforting rice bowls: every base is designed to carry, soak, and
+              deliver our signature flavours the way they are meant to be. But
+              the brioche? That’s where it starts. Soft, buttery, and toasted
+              just right, lightly crisp on the outside, soft in the centre, and
+              built to hold every layer without falling apart.
             </p>
             <div className="rating-row">
               <div className="rating-item">

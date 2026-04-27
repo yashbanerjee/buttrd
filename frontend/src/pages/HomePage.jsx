@@ -24,20 +24,30 @@ export function HomePage() {
             </span>
             <div>
               <p className="hero-subtitle">
-                One Obsession. Three Signature Icons.
+              Buttrd is built on a simple idea: take the comfort food people already love and reimage it in a familiar , yet unexpected way.
               </p>
               <p className="hero-body" style={{ marginTop: "10px" }}>
-                Buttrd was born from a singular pursuit: to elevate the dishes
-                that hit the soul. We don’t just serve food; we serve the result
-                of countless hours spent balancing richness with intention.
+                We don’t start with dishes. We start with flavour.
+
+Everything on our menu is built around signature sauces Buttrd, Beef Chilli, and Birria. They were developed in-house and designed to transform familiar formats like sandwiches, pasta, and rice bowls into something more addictive, more indulgent, and more memorable.
+
+This isn’t about reinventing food for the sake of it.
+It is about doing simple things better with more intention, more depth, and more flavour.
+
+
               </p>
+              
               <p className="hero-body" style={{ marginTop: "14px" }}>
-                Our menu is built upon a foundation of three distinct icons: the
-                creamy indulgence of our Buttrd sauce, the savory intensity of
-                our Beef Chilli, and the deep, aromatic comfort of our Beef
-                Birria. By reimagining these classics with a signature twist,
-                we’ve created a dining experience that feels like home-only hit
-                with a character you won't find anywhere else.
+              
+<ul>
+<p className="hero-subtitle">
+              What We Believe
+              </p>
+  <li>Flavour comes first — always</li>
+  <li>A great sauce can change everything</li>
+  <li>Simple food doesn’t have to be boring</li>
+  </ul>
+
               </p>
             </div>
             <Link to="/home" className="hero-cta">
@@ -62,7 +72,7 @@ export function HomePage() {
           <div className="hero-image">
             <img
               src="/assets/hero-home.png"
-              alt="Stack of Buttrd brioche sandwiches with chilli cheese hot dog, paneer, beef chilli, and chicken"
+              alt="Menu highlights: Chilli Cheese Loaded Hot Dog, Buttrd Paneer Brioche, Beef Chilli Cheese, and Buttrd Chicken Brioche on pink"
             />
           </div>
         </div>
@@ -74,15 +84,9 @@ export function HomePage() {
         <div className="section-inner">
           <div className="sauces-header">
             <div className="sauces-title-group">
-              <h2 className="sauces-title">The Trinity of Taste.</h2>
+              <h2 className="sauces-title">This is where the flavour starts.</h2>
               <p className="sauces-subtitle">
-                Great food isn’t an accident; it’s an obsession. We’ve distilled
-                our culinary philosophy into three signature profiles that serve
-                as the heartbeat of our kitchen. Whether it’s the velvety,
-                golden balance of our Buttrd sauce, the rugged, savory depth of
-                our Beef Chilli, or the spiced, slow-braised soul of our Beef
-                Birria, we don’t just add flavor—we build it from the ground up.
-                This is the foundation of every bite we serve.
+              Three sauces. Three completely different moods. Three signature profiles, each crafted to deliver a completely different kind of comfort. One goal: to make every bite hit.  
               </p>
             </div>
             <div style={{ flexShrink: 0, position: "relative" }}>

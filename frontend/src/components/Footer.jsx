@@ -41,13 +41,11 @@ export function Footer({ aboutUsTo = '#' }) {
         </div>
         <div className="footer-col">
           <h4>Kitchen</h4>
-          <p>Mon – Fri: 8:00 – 21:00</p>
-          <p>Sat: 9:30 – 18:00</p>
-          <p>Sun: 9:30 – 16:00</p>
+          <p>11AM – 12AM, all week</p>
           <p style={{ marginTop: '12px' }}>
-            1501 Main St, Ste 50
+            RBC Tower, Marasi Drive
             <br />
-            Tewksbury MA 01876
+            Business Bay, Dubai, UAE
           </p>
         </div>
         <div className="footer-col">

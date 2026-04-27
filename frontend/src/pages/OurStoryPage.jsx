@@ -23,24 +23,24 @@ export function OurStoryPage() {
                 getting a single sauce just right.
               </p>
               <p>
-                It began with butter chicken—but not the way we knew it. We spent months tweaking, adjusting, and
+                It began with butter chicken, but not the way we knew it. We spent months tweaking, adjusting, and
                 tasting. Too rich. Too flat. Too tangy. Too safe. Then, it clicked. We found that perfect balance of
-                indulgent richness, a hint of sweetness, and a gentle tang—a flavor that felt familiar, yet possessed a
+                indulgent richness, a hint of sweetness, and a gentle tang, a flavor that felt familiar, yet possessed a
                 character entirely its own.
               </p>
               <p>It was a sauce that didn&apos;t just sit on the food; it carried it.</p>
               <p>
                 That first recipe became our foundation. Not just a signature flavor, but a way of thinking. We grew
-                up on the classics—the dishes you crave after a long day; the ones you return to without thinking. They
+                up on the classics, the dishes you crave after a long day; the ones you return to without thinking. They
                 are reliable, but they are also predictable. We realized there was so much more they could be.
               </p>
               <p>
                 We started asking: What if comfort food didn&apos;t stay in its lane? What if these flavors worked
-                beyond the obvious—in a toasted sandwich, over pasta, or tossed in a bowl?
+                beyond the obvious, in a toasted sandwich, over pasta, or tossed in a bowl?
               </p>
               <p>
                 Our mission isn&apos;t to reinvent food, but to reimagine what already works. We create sauces that feel
-                like home but hit differently. Sandwiches you think you know—until the first bite. Flavors that comfort
+                like home but hit differently. Sandwiches you think you know, until the first bite. Flavors that comfort
                 you, yet still find a way to surprise you.
               </p>
               <p>One sauce turned into a concept. A concept turned into a menu. That menu became Buttrd.</p>
@@ -63,9 +63,9 @@ export function OurStoryPage() {
                 />
               </div>
               <img
-                src="/assets/chef-illustration.png"
+                src="/assets/story-stickers.png"
                 className="story-chef"
-                alt="Illustration of a cook stirring a bowl"
+                alt="Cute sticker-style butter cube and pink heart characters"
               />
             </div>
           </div>
