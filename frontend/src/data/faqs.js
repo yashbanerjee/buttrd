@@ -21,8 +21,10 @@ export const homeFaqs = [
   },
   {
     question: "What if there's an issue with my order?",
-    answer:
-      'Contact us right away through the platform you ordered on (Noon, our website, or your delivery app) or email Info@buttrdme.com—we will help sort it out.',
+    answer: [
+      'If you ordered through a delivery app (Noon, Talabat, Deliveroo, etc.), please reach out directly to their support team through the app and they will handle it for you quickly.',
+      'If you ordered through our website, you can contact us directly via phone on +971 56 683 3534 or email at Info@buttrdme.com and we will take care of it.',
+    ],
   },
 ]
 
@@ -49,8 +51,10 @@ export const cateringFaqs = [
   },
   {
     question: "What if there's an issue with my order?",
-    answer:
-      'Contact us right away through the platform you ordered on (Noon, our website, or your delivery app) or email Info@buttrdme.com—we will help sort it out.',
+    answer: [
+      'If you ordered through a delivery app (Noon, Talabat, Deliveroo, etc.), please reach out directly to their support team through the app and they will handle it for you quickly.',
+      'If you ordered through our website, you can contact us directly via phone on +971 56 683 3534 or email at Info@buttrdme.com and we will take care of it.',
+    ],
   },
 ]
 
@@ -77,7 +81,9 @@ export const ourStoryFaqs = [
   },
   {
     question: "What if there's an issue with my order?",
-    answer:
-      'Contact us right away through the platform you ordered on (Noon, our website, or your delivery app) or email Info@buttrdme.com—we will help sort it out.',
+    answer: [
+      'If you ordered through a delivery app (Noon, Talabat, Deliveroo, etc.), please reach out directly to their support team through the app and they will handle it for you quickly.',
+      'If you ordered through our website, you can contact us directly via phone on +971 56 683 3534 or email at Info@buttrdme.com and we will take care of it.',
+    ],
   },
 ]

@@ -1,5 +1,4 @@
 import { Helmet } from "react-helmet-async";
-import { Link } from "react-router-dom";
 import { FeedbackFaq } from "../components/FeedbackFaq.jsx";
 import { Footer } from "../components/Footer.jsx";
 import { SocialSection } from "../components/SocialSection.jsx";
@@ -24,9 +23,10 @@ export function HomePage() {
             </span>
             <div>
               <p className="hero-subtitle">
-              Buttrd is built on a simple idea: take the comfort food people already love and reimage it in a familiar , yet unexpected way.
+                Buttrd is built on a simple idea: take the comfort food people
+                already love and reimage it in a familiar , yet unexpected way.
               </p>
-              <p className="hero-body" style={{ marginTop: "10px" }}>
+              {/* <p className="hero-body" style={{ marginTop: "10px" }}>
                 We don’t start with dishes. We start with flavour.
 
 Everything on our menu is built around signature sauces Buttrd, Beef Chilli, and Birria. They were developed in-house and designed to transform familiar formats like sandwiches, pasta, and rice bowls into something more addictive, more indulgent, and more memorable.
@@ -35,22 +35,22 @@ This isn’t about reinventing food for the sake of it.
 It is about doing simple things better with more intention, more depth, and more flavour.
 
 
-              </p>
-              
-              <p className="hero-body" style={{ marginTop: "14px" }}>
-              
-<ul>
-<p className="hero-subtitle">
-              What We Believe
-              </p>
-  <li>Flavour comes first — always</li>
-  <li>A great sauce can change everything</li>
-  <li>Simple food doesn’t have to be boring</li>
-  </ul>
+              </p> */}
 
-              </p>
+              <br />
+              <br />
+              <div className="hero-beliefs">
+                <p className="hero-subtitle">What We Believe</p>
+                <ul className="hero-beliefs-list hero-body">
+                  <li>Flavour comes first - always</li>
+                  <li>A great sauce can change everything</li>
+                  <li>Simple food doesn’t have to be boring</li>
+                </ul>
+              </div>
+              <br />
+              <br />
             </div>
-            <Link to="/home" className="hero-cta">
+            <a href="javascript:;" className="hero-cta" onClick={() => window.DeliverectWidget?.orderNow()}>
               {/* <svg
                 width="32"
                 height="32"
@@ -67,7 +67,7 @@ It is about doing simple things better with more intention, more depth, and more
                 />
               </svg> */}
               Get Buttr&apos;d In 30 Minutes
-            </Link>
+            </a>
           </div>
           <div className="hero-image">
             <img
@@ -84,9 +84,13 @@ It is about doing simple things better with more intention, more depth, and more
         <div className="section-inner">
           <div className="sauces-header">
             <div className="sauces-title-group">
-              <h2 className="sauces-title">This is where the flavour starts.</h2>
+              <h2 className="sauces-title">
+                This is where the flavour starts.
+              </h2>
               <p className="sauces-subtitle">
-              Three sauces. Three completely different moods. Three signature profiles, each crafted to deliver a completely different kind of comfort. One goal: to make every bite hit.  
+                Three sauces. Three completely different moods. Three signature
+                profiles, each crafted to deliver a completely different kind of
+                comfort. One goal: to make every bite hit.
               </p>
             </div>
             <div style={{ flexShrink: 0, position: "relative" }}>
@@ -151,9 +155,9 @@ It is about doing simple things better with more intention, more depth, and more
 
       <BriocheLabsSection />
 
-      <WaveDivider background="#fff" pathFill="var(--blue)" />
+      <WaveDivider background="#fff" pathFill="var(--blue)" svgStyle={{ color: 'rgba(255, 255, 255, 1)', backgroundColor: 'rgba(235, 248, 255, 1)' }} />
 
-      <section className="food-range">
+      {/* <section className="food-range">
         <div className="section-inner">
           <div className="food-range-header">
             <h2>The Menu</h2>
@@ -172,9 +176,9 @@ It is about doing simple things better with more intention, more depth, and more
                   The softest seat in the house for our boldest flavors.
                   Pillowy, buttery, and built to be held.
                 </p>
-                <Link to="/offers" className="food-card-cta">
+                <a href="javascript:;" className="food-card-cta" onClick={() => window.DeliverectWidget?.orderNow()}>
                   order now
-                </Link>
+                </a>
               </div>
               <div className="food-card-media">
                 <img
@@ -191,9 +195,9 @@ It is about doing simple things better with more intention, more depth, and more
                   Where grains and greens meet the depth of the simmer. A
                   hearty, soulful soak in every forkful.
                 </p>
-                <Link to="/offers" className="food-card-cta">
+                <a href="javascript:;" className="food-card-cta" onClick={() => window.DeliverectWidget?.orderNow()}>
                   order now
-                </Link>
+                </a>
               </div>
               <div className="food-card-media">
                 <img
@@ -210,9 +214,9 @@ It is about doing simple things better with more intention, more depth, and more
                   Golden-crisped, gooey, and unapologetically messy. The
                   ultimate collision of crunch and melt.
                 </p>
-                <Link to="/offers" className="food-card-cta">
+                <a href="javascript:;" className="food-card-cta" onClick={() => window.DeliverectWidget?.orderNow()}>
                   order now
-                </Link>
+                </a>
               </div>
               <div className="food-card-media">
                 <img
@@ -229,9 +233,9 @@ It is about doing simple things better with more intention, more depth, and more
                   The encore your meal deserves. Cool, sweet, and designed to
                   balance the heat.
                 </p>
-                <Link to="/offers" className="food-card-cta">
+                <a href="javascript:;" className="food-card-cta" onClick={() => window.DeliverectWidget?.orderNow()}>
                   order now
-                </Link>
+                </a>
               </div>
               <div
                 className="food-card-media food-card-media--placeholder food-card-media--placeholder-ice"
@@ -247,7 +251,7 @@ It is about doing simple things better with more intention, more depth, and more
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <SocialSection images={homeSocialImages} />
       <FeedbackFaq faqs={homeFaqs} />

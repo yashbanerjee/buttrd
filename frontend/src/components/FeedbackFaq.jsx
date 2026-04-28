@@ -87,7 +87,11 @@ export function FeedbackFaq({ faqs }) {
                   {item.question}
                   <span className="faq-icon">+</span>
                 </div>
-                <div className="faq-answer">{item.answer}</div>
+                <div className="faq-answer">
+                  {Array.isArray(item.answer)
+                    ? item.answer.map((para, i) => <p key={i}>{para}</p>)
+                    : item.answer}
+                </div>
               </div>
             ))}
           </div>

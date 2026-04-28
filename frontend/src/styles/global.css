@@ -494,6 +494,9 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .hero-subtitle { font-family: var(--font-display); font-weight: 700; font-size: clamp(24px, 3vw, 40px); color: #000; line-height: 1.1; }
 .hero-content .hero-subtitle { font-size: 24px; }
 .hero-body { font-family: var(--font-body); font-weight: 500; font-size: clamp(16px, 1.6vw, 18px); color: #000; line-height: 1.5; }
+.hero-beliefs { display: flex; flex-direction: column; gap: 10px; }
+.hero-beliefs-list { list-style: disc; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+.hero-beliefs-list li { font-family: var(--font-body); font-weight: 500; font-size: clamp(16px, 1.6vw, 18px); color: #000; line-height: 1.5; }
 .hero-cta {
   display: inline-flex;
   align-items: center;
@@ -550,7 +553,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   gap: 40px;
   margin-bottom: 60px;
 }
-.sauces-title-group { display: flex; flex-direction: column; gap: 12px; max-width: 740px; }
+.sauces-title-group { display: flex; flex-direction: column; gap: 12px; }
+.sauces-title { white-space: nowrap; }
 .sauces-subtitle {
   font-family: var(--font-body);
   font-weight: 500;
@@ -619,7 +623,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 /* ─── BRIOCHE LABS ─── */
 .brioche {
-  background: #a8e2ff;
+  background: var(--blue);
   padding: 80px 0 88px;
 }
 .brioche-inner {
@@ -1086,7 +1090,8 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   color: var(--dark);
   line-height: 1.6;
 }
-.faq-item.open .faq-answer { max-height: 200px; padding-bottom: 16px; }
+.faq-item.open .faq-answer { max-height: 300px; padding-bottom: 16px; }
+.faq-answer p + p { margin-top: 10px; }
 
 /* ─── FOOTER ─── */
 .footer {

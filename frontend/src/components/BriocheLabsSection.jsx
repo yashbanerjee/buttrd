@@ -27,10 +27,12 @@ export function BriocheLabsSection() {
               Great flavour needs the right foundation. From soft, buttery
               brioche to crisp, herbed focaccia and from creamy pastas to
               comforting rice bowls: every base is designed to carry, soak, and
-              deliver our signature flavours the way they are meant to be. But
-              the brioche? That’s where it starts. Soft, buttery, and toasted
-              just right, lightly crisp on the outside, soft in the centre, and
-              built to hold every layer without falling apart.
+              deliver our signature flavours the way they are meant to be. But{" "}
+              <br />
+              <strong>The Brioche?</strong> <br />
+              That’s where it starts. Soft, buttery, and toasted just right,
+              lightly crisp on the outside, soft in the centre, and built to
+              hold every layer without falling apart.
             </p>
             <div className="rating-row">
               <div className="rating-item">
