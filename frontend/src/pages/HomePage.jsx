@@ -50,7 +50,7 @@ It is about doing simple things better with more intention, more depth, and more
               <br />
               <br />
             </div>
-            <a href="javascript:;" className="hero-cta" onClick={() => window.DeliverectWidget?.orderNow()}>
+            <a href="#" className="hero-cta" onClick={(e) => { e.preventDefault(); window.DeliverectWidget.orderNow(); }}>
               {/* <svg
                 width="32"
                 height="32"
