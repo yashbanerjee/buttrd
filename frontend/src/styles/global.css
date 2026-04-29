@@ -95,10 +95,10 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .sauces-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 56px;
+  font-size: clamp(28px, 4.8vw, 56px);
   text-transform: uppercase;
   letter-spacing: 0px;
-  line-height: 56px;
+  line-height: 1.05;
   color: var(--sticker-fill);
   -webkit-text-stroke: clamp(5px, 0.85vw, 10px) var(--sticker-outline);
   paint-order: stroke fill;
@@ -318,6 +318,24 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   transition: opacity 0.2s;
 }
 .nav-links a:hover { opacity: 0.7; }
+.nav-order-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--pink);
+  color: #fff !important;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  padding: 8px 20px;
+  border-radius: 100px;
+  transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+}
+.nav-order-btn:hover {
+  opacity: 1 !important;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(255, 112, 181, 0.4);
+}
 .nav-links a.active {
   font-weight: 700;
   color: var(--white);
@@ -394,6 +412,14 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     height: 24px;
   }
   .mobile-tabbar__item--active .mobile-tabbar__svg {
+    stroke: var(--pink);
+  }
+  .mobile-tabbar__item--cta {
+    color: var(--pink);
+    font-weight: 700;
+    opacity: 1;
+  }
+  .mobile-tabbar__item--cta .mobile-tabbar__svg {
     stroke: var(--pink);
   }
   .mobile-tabbar__label {
@@ -1036,6 +1062,36 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   color: var(--dark);
 }
 
+.feedback-success {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 28px 24px;
+  background: #fff;
+  border: 1.5px solid rgba(255, 112, 181, 0.35);
+  border-radius: 16px;
+}
+.feedback-success__icon { font-size: 32px; line-height: 1; }
+.feedback-success__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 20px;
+  color: var(--dark);
+}
+.feedback-success__body {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--dark);
+  opacity: 0.8;
+  line-height: 1.5;
+}
+.feedback-error {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  color: #d94f4f;
+}
 .form-actions { display: flex; justify-content: flex-end; }
 .btn-submit {
   background: var(--pink);
@@ -1537,6 +1593,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   }
   .sauces-title {
     line-height: 1.12;
+    white-space: normal;
   }
   .sauces-header > div:last-child {
     margin-top: 0;
@@ -1715,7 +1772,6 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
   }
   .catering-hero-images { height: 250px; }
 
-  .sauces-title { font-size: 36px; }
   .sauces-cards { grid-template-columns: 1fr; max-width: 100%; }
 
   .brioche-labs-title { font-size: clamp(24px, 6vw, 36px); }

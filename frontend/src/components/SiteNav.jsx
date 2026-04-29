@@ -34,6 +34,16 @@ export function SiteNav() {
               OFFERS
             </NavLink>
           </li>
+          <li>
+            <a
+              href="https://buttrd-uae.deliverectdirect.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="nav-order-btn"
+            >
+              ORDER NOW
+            </a>
+          </li>
         </ul>
       </div>
     </nav>

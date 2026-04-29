@@ -30,6 +30,16 @@ function IconOffers() {
   )
 }
 
+function IconOrder() {
+  return (
+    <svg className="mobile-tabbar__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
+      <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M3 6h18" strokeLinecap="round" />
+      <path d="M16 10a4 4 0 0 1-8 0" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  )
+}
+
 function IconFeedback() {
   return (
     <svg className="mobile-tabbar__svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden>
@@ -56,6 +66,17 @@ export function MobileTabBar() {
         </span>
         <span className="mobile-tabbar__label">Our story</span>
       </NavLink>
+      <a
+        href="https://buttrd-uae.deliverectdirect.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mobile-tabbar__item mobile-tabbar__item--cta"
+      >
+        <span className="mobile-tabbar__icon" aria-hidden="true">
+          <IconOrder />
+        </span>
+        <span className="mobile-tabbar__label">Order now</span>
+      </a>
       <NavLink to="/offers" className={tabClass}>
         <span className="mobile-tabbar__icon" aria-hidden="true">
           <IconOffers />
