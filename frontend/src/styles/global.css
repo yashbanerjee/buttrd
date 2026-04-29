@@ -95,7 +95,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .sauces-title {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(28px, 4.8vw, 56px);
+  font-size: clamp(36px, 4.8vw, 56px);
   text-transform: uppercase;
   letter-spacing: 0px;
   line-height: 1.05;
@@ -162,7 +162,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .social-header h2 {
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(28px, 4vw, 56px);
+  font-size: clamp(36px, 4vw, 56px);
   text-transform: uppercase;
   letter-spacing: -0.04em;
   line-height: 0.88;
@@ -694,7 +694,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 .brioche-labs-title {
   font-family: var(--font-display);
   font-weight: 800;
-  font-size: clamp(26px, 3.4vw, 44px);
+  font-size: clamp(36px, 3.4vw, 44px);
   color: var(--pink);
   text-transform: uppercase;
   letter-spacing: 0.04em;
@@ -1724,7 +1724,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
     --mobile-hero-headline-reserve: clamp(140px, 30vh, 200px);
   }
   .hero-headline {
-    font-size: clamp(32px, 10vw, 44px);
+    font-size: clamp(36px, 10vw, 44px);
     -webkit-text-stroke: 4px var(--sticker-outline);
   }
   .hero-image {
@@ -1774,7 +1774,7 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
   .sauces-cards { grid-template-columns: 1fr; max-width: 100%; }
 
-  .brioche-labs-title { font-size: clamp(24px, 6vw, 36px); }
+  .brioche-labs-title { font-size: 36px; }
   .food-card-text h3 { font-size: 36px; }
 
   .social-grid { grid-template-columns: repeat(2, 1fr); }
