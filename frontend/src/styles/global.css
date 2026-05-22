@@ -16,6 +16,13 @@
   --light-pink:   #FFE0F1;
   --yellow:       #FFD61F;
   --light-yellow: #FFFADD;
+  --hero-bg: color-mix(in srgb, var(--yellow) 10%, white);
+  --hero-dot-pattern: radial-gradient(
+    circle at center,
+    color-mix(in srgb, var(--dark) 6%, transparent) 0.75px,
+    transparent 0.75px
+  );
+  --hero-dot-size: 26px;
   --blue:         #A0E3F7;
   --light-blue:   #EBF8FF;
 
@@ -256,7 +263,12 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 }
 
 /* ─── WAVE DIVIDER ─── */
-.wave { display: block; overflow: hidden; line-height: 0; }
+.wave {
+  display: block;
+  overflow: hidden;
+  line-height: 0;
+  position: relative;
+}
 .wave svg { display: block; width: 100%; }
 
 /* ─── NAV ─── */
@@ -496,13 +508,22 @@ button { cursor: pointer; border: none; background: none; font: inherit; }
 
 /* ─── HERO ─── */
 .hero {
-  background: var(--sticker-yellow-hero);
+  background-color: var(--hero-bg);
   padding: 80px 0 0;
   min-height: 780px;
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: var(--hero-dot-pattern);
+  background-size: var(--hero-dot-size) var(--hero-dot-size);
+  pointer-events: none;
+  z-index: 0;
 }
 .hero-inner {
   display: grid;

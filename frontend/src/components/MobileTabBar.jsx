@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom'
+import { BUTTRD_ORDER_URL } from '../data/buttrdLinks.js'
 import { FeedbackNavLink } from './FeedbackNavLink.jsx'
 
 const tabClass = ({ isActive }) => `mobile-tabbar__item${isActive ? ' mobile-tabbar__item--active' : ''}`
@@ -67,7 +68,7 @@ export function MobileTabBar() {
         <span className="mobile-tabbar__label">Our story</span>
       </NavLink>
       <a
-        href="https://buttrd-uae.deliverectdirect.com/"
+        href={BUTTRD_ORDER_URL}
         target="_blank"
         rel="noopener noreferrer"
         className="mobile-tabbar__item mobile-tabbar__item--cta"

@@ -6,6 +6,7 @@ import { BriocheLabsSection } from "../components/BriocheLabsSection.jsx";
 import { WaveDivider } from "../components/WaveDivider.jsx";
 import { HeroCardDeck } from "../components/HeroCardDeck.jsx";
 import { homeFaqs } from "../data/faqs.js";
+import { BUTTRD_ORDER_URL } from "../data/buttrdLinks.js";
 import { heroCards } from "../data/heroCards.js";
 import { homeSocialImages } from "../data/socialGrids.js";
 
@@ -48,23 +49,24 @@ It is about doing simple things better with more intention, more depth, and more
               <br />
               <br />
             </div>
-            <a href="https://buttrd-uae.deliverectdirect.com/" target="_blank" rel="noopener noreferrer" className="hero-cta">
-              {/* <svg
+            <a href={BUTTRD_ORDER_URL} target="_blank" rel="noopener noreferrer" className="hero-cta">
+              <svg
                 width="32"
                 height="32"
                 viewBox="0 0 35 28"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                aria-hidden
               >
                 <path
                   d="M33 18H30M30 18V14L27 10H22V18M30 18H22M22 18H11M11 18H8M8 18C8 19.66 6.66 21 5 21C3.34 21 2 19.66 2 18M8 18C8 16.34 6.66 15 5 15C3.34 15 2 16.34 2 18M2 18H0M26 20.5C26 21.88 25.12 22 25.5 22C25.88 22 26 21.88 26 20.5C26 19.12 25.88 18 25.5 18C25.12 18 26 19.12 26 20.5ZM14 20.5C14 21.88 13.12 22 13.5 22C13.88 22 14 21.88 14 20.5C14 19.12 13.12 18 13.5 18C13.88 18 14 19.12 14 20.5ZM2 14L8 6H18V14"
-                  stroke="white"
+                  stroke="currentColor"
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-              </svg> */}
-              Get Buttr&apos;d In 30 Minutes
+              </svg>
+              Order Now
             </a>
           </div>
           <div className="hero-image">
@@ -73,7 +75,7 @@ It is about doing simple things better with more intention, more depth, and more
         </div>
       </section>
 
-      <WaveDivider background="var(--pink)" pathFill="var(--yellow)" />
+      <WaveDivider background="var(--pink)" pathFill="var(--hero-bg)" />
 
       <section className="sauces">
         <div className="section-inner">
@@ -171,7 +173,7 @@ It is about doing simple things better with more intention, more depth, and more
                   The softest seat in the house for our boldest flavors.
                   Pillowy, buttery, and built to be held.
                 </p>
-                <a href="javascript:;" className="food-card-cta" onClick={() => window.DeliverectWidget?.orderNow()}>
+                <a href={BUTTRD_ORDER_URL} target="_blank" rel="noopener noreferrer" className="food-card-cta">
                   order now
                 </a>
               </div>
@@ -190,7 +192,7 @@ It is about doing simple things better with more intention, more depth, and more
                   Where grains and greens meet the depth of the simmer. A
                   hearty, soulful soak in every forkful.
                 </p>
-                <a href="javascript:;" className="food-card-cta" onClick={() => window.DeliverectWidget?.orderNow()}>
+                <a href={BUTTRD_ORDER_URL} target="_blank" rel="noopener noreferrer" className="food-card-cta">
                   order now
                 </a>
               </div>
@@ -209,7 +211,7 @@ It is about doing simple things better with more intention, more depth, and more
                   Golden-crisped, gooey, and unapologetically messy. The
                   ultimate collision of crunch and melt.
                 </p>
-                <a href="javascript:;" className="food-card-cta" onClick={() => window.DeliverectWidget?.orderNow()}>
+                <a href={BUTTRD_ORDER_URL} target="_blank" rel="noopener noreferrer" className="food-card-cta">
                   order now
                 </a>
               </div>
@@ -228,7 +230,7 @@ It is about doing simple things better with more intention, more depth, and more
                   The encore your meal deserves. Cool, sweet, and designed to
                   balance the heat.
                 </p>
-                <a href="javascript:;" className="food-card-cta" onClick={() => window.DeliverectWidget?.orderNow()}>
+                <a href={BUTTRD_ORDER_URL} target="_blank" rel="noopener noreferrer" className="food-card-cta">
                   order now
                 </a>
               </div>

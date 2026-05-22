@@ -1,5 +1,6 @@
 import { Link, NavLink } from "react-router-dom";
 import { FeedbackNavLink } from "./FeedbackNavLink.jsx";
+import { BUTTRD_ORDER_URL } from "../data/buttrdLinks.js";
 
 const linkClass = ({ isActive }) => (isActive ? "active" : undefined);
 
@@ -36,7 +37,7 @@ export function SiteNav() {
           </li>
           <li>
             <a
-              href="https://buttrd-uae.deliverectdirect.com/"
+              href={BUTTRD_ORDER_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="nav-order-btn"
