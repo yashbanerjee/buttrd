@@ -6,127 +6,6 @@
   <link rel="icon" type="image/png" href="assets/favicon.png"/>
   <title>Buttrd – Our Story</title>
   <link rel="stylesheet" href="styles.css"/>
-  <style>
-    .story-section {
-      background: var(--light-pink);
-      padding: 60px 80px 80px;
-    }
-    .story-card {
-      background: transparent;
-      border: none;
-      border-radius: 50px;
-      padding: 80px 100px 80px 100px;
-      position: relative;
-      overflow: hidden;
-      max-width: 1281px;
-      margin: 0 auto;
-    }
-    .story-body {
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: clamp(15px, 1.4vw, 20px);
-      color: #000;
-      line-height: 1.7;
-      max-width: 900px;
-    }
-    .story-body p { margin-bottom: 20px; }
-    .story-body p:last-child { margin-bottom: 0; }
-    .story-body strong {
-      font-weight: 700;
-      display: block;
-      margin-top: 8px;
-      font-size: clamp(16px, 1.5vw, 22px);
-    }
-    .story-beliefs {
-      background: rgba(255,112,181,0.08);
-      border-left: 4px solid var(--pink);
-      border-radius: 0 12px 12px 0;
-      padding: 20px 24px;
-      margin: 24px 0;
-      max-width: 500px;
-    }
-    .story-beliefs p {
-      margin: 0;
-      font-family: var(--font-body);
-      font-weight: 600;
-      font-size: clamp(14px, 1.2vw, 18px);
-      color: var(--dark);
-      line-height: 1.8;
-    }
-    .story-sauce-grid {
-      display: grid;
-      grid-template-columns: repeat(3,1fr);
-      gap: 24px;
-      margin: 32px 0;
-      max-width: 900px;
-    }
-    .story-sauce-item {
-      background: rgba(255,255,255,0.7);
-      border-radius: 20px;
-      padding: 20px 22px;
-      border: 1.5px solid rgba(255,112,181,0.25);
-    }
-    .story-sauce-item p {
-      font-family: var(--font-body);
-      font-size: clamp(13px, 1.1vw, 16px);
-      color: var(--dark);
-      line-height: 1.5;
-      margin: 0;
-    }
-    .story-regards {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      margin-top: 56px;
-      gap: 32px;
-    }
-    .story-regards-left {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-    }
-    .story-regards-label {
-      font-family: var(--font-body);
-      font-size: 22px;
-      font-weight: 600;
-      color: #000;
-    }
-    .story-regards-logo {
-      height: 80px;
-      width: auto;
-    }
-    .story-chef {
-      width: 260px;
-      height: 300px;
-      border-radius: 80px;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
-    .story-decor {
-      position: absolute;
-      width: 22px; height: 22px;
-      background: var(--pink);
-      clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%);
-      opacity: 0.5;
-    }
-
-    @media (max-width: 900px) {
-      .story-section { padding: 40px 32px 60px; }
-      .story-card { padding: 56px 48px; border-radius: 32px; }
-      .story-sauce-grid { grid-template-columns: 1fr; max-width: 100%; }
-      .story-regards { flex-direction: column; align-items: flex-start; }
-      .story-chef { width: 200px; height: 230px; border-radius: 50px; }
-    }
-    @media (max-width: 600px) {
-      .story-section { padding: 28px 16px 48px; }
-      .story-card { padding: 40px 24px; border-radius: 24px; }
-      .story-title {
-        font-size: clamp(40px, 12vw, 64px);
-        -webkit-text-stroke: 4px var(--sticker-outline);
-      }
-      .story-sauce-grid { grid-template-columns: 1fr; }
-    }
-  </style>
 </head>
 <body>
 
@@ -159,48 +38,28 @@
 <!-- OUR STORY MAIN -->
 <section class="story-section">
   <div class="story-card">
-    <!-- Decorative stars -->
-    <span class="story-decor" style="top:60px;right:180px;width:18px;height:18px;opacity:0.3"></span>
-    <span class="story-decor" style="bottom:200px;left:60px;width:14px;height:14px;opacity:0.25"></span>
+    <div class="story-card__surface">
+      <h1 class="story-title">Our Story</h1>
 
-    <h1 class="story-title">Our Story</h1>
-
-    <div class="story-body">
-      <p>Buttrd is built on a simple idea: take the comfort food people already love — and reinvent it in bold, unexpected ways.<br>We don't start with dishes. We start with flavour.</p>
-
-      <p>Everything on our menu is built around signature sauces — Buttrd, Beef Chilli, and Birria — developed in-house and designed to transform familiar formats like sandwiches, pasta, and rice bowls into something more addictive, more indulgent, and more memorable.</p>
-
-      <p>This isn't about reinventing food for the sake of it.<br>It is about doing simple things better — with more intention, more depth, and more flavour.</p>
-
-      <strong>What We Believe</strong>
-      <div class="story-beliefs">
-        <p>Flavour comes first — always<br>A great sauce can change everything<br>Simple food doesn't have to be boring</p>
+      <div class="story-body">
+        <p>Buttrd didn&apos;t start with a menu. It started in a home kitchen with two people and one obsession: getting a single sauce just right.</p>
+        <p>It began with butter chicken—but not the way we knew it. We spent months tweaking, adjusting, and tasting. Too rich. Too flat. Too tangy. Too safe. Then, it clicked. We found that perfect balance of indulgent richness, a hint of sweetness, and a gentle tang—a flavor that felt familiar, yet possessed a character entirely its own.</p>
+        <p>It was a sauce that didn&apos;t just sit on the food; it carried it.</p>
+        <p>That first recipe became our foundation. Not just a signature flavor, but a way of thinking. We grew up on the classics—the dishes you crave after a long day; the ones you return to without thinking. They are reliable, but they are also predictable. We realized there was so much more they could be.</p>
+        <p>We started asking: What if comfort food didn&apos;t stay in its lane? What if these flavors worked beyond the obvious—in a toasted sandwich, over pasta, or tossed in a bowl?</p>
+        <p>Our mission isn&apos;t to reinvent food, but to reimagine what already works. We create sauces that feel like home but hit differently. Sandwiches you think you know—until the first bite. Flavors that comfort you, yet still find a way to surprise you.</p>
+        <p>One sauce turned into a concept. A concept turned into a menu. That menu became Buttrd.</p>
+        <p>Today, every dish we serve follows that same original spark: we take the things people already love and give them a reason to fall in love all over again. Because comfort food should never be boring.</p>
+        <p>And at Buttrd, it never is.</p>
       </div>
-    </div>
 
-    <!-- Sauce Cards -->
-    <div class="story-sauce-grid">
-      <div class="story-sauce-item">
-        <h4>Buttrd Sauce</h4>
-        <p>Our take on butter chicken, with a perfect balance of sweetness and a gentle tang, reimagined the Buttrd way. Rich, creamy, and indulgent.</p>
+      <div class="story-regards">
+        <div class="story-regards-left">
+          <span class="story-regards-label">Regards From</span>
+          <img src="assets/logo-pink-colored.svg" class="story-regards-logo" alt="Buttrd" width="200" height="63"/>
+        </div>
+        <img src="assets/chef-illustration.png" class="story-chef" alt="Illustration of a cook stirring a bowl"/>
       </div>
-      <div class="story-sauce-item">
-        <h4>Beef Chilli</h4>
-        <p>Slow-cooked beef in a rich, savoury chilli con carne, packed with serious flavour in every bite. Messy, rich and hearty.</p>
-      </div>
-      <div class="story-sauce-item">
-        <h4>Beef Birria</h4>
-        <p>Slow-braised beef soaked in rich, spiced broth, packed with warmth in every bite. Deep, comforting, and worth every drip.</p>
-      </div>
-    </div>
-
-    <!-- Regards -->
-    <div class="story-regards">
-      <div class="story-regards-left">
-        <span class="story-regards-label">Regards From</span>
-        <img src="assets/buttrd-logo.png" class="story-regards-logo" alt="Buttrd"/>
-      </div>
-      <img src="assets/chef-illustration.png" class="story-chef" alt="Buttrd chef"/>
     </div>
   </div>
 </section>
@@ -210,21 +69,16 @@
   <div class="section-inner">
     <div class="social-header">
       <h2>Join our social circle</h2>
-      <a href="https://instagram.com/buttrd.me" target="_blank" class="social-insta-btn">
-        <svg width="26" height="26" viewBox="0 0 24 24" fill="none">
-          <rect x="2" y="2" width="20" height="20" rx="5" stroke="currentColor" stroke-width="2"/>
-          <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
-          <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"/>
-        </svg>
+      <a href="https://www.instagram.com/buttrd.me/" target="_blank" rel="noopener noreferrer" class="social-insta-btn">
         @Buttrd.me
       </a>
     </div>
     <div class="social-grid">
-      <div class="social-item"><img src="assets/social-1.png"      alt="Instagram post"/></div>
-      <div class="social-item"><img src="assets/catering-hero.png" alt="Instagram post"/></div>
-      <div class="social-item"><img src="assets/brioche-bread.png" alt="Instagram post"/></div>
-      <div class="social-item"><img src="assets/melts-wraps.png"   alt="Instagram post"/></div>
-      <div class="social-item"><img src="assets/desserts-1.png"    alt="Instagram post"/></div>
+      <div class="social-item"><a href="https://www.instagram.com/buttrd.me/" target="_blank" rel="noopener noreferrer" aria-label="View on Instagram"><img src="assets/social-1.png"      alt="Instagram post"/></a></div>
+      <div class="social-item"><a href="https://www.instagram.com/buttrd.me/" target="_blank" rel="noopener noreferrer" aria-label="View on Instagram"><img src="assets/catering-hero.png" alt="Instagram post"/></a></div>
+      <div class="social-item"><a href="https://www.instagram.com/buttrd.me/" target="_blank" rel="noopener noreferrer" aria-label="View on Instagram"><img src="assets/brioche-bread.png" alt="Instagram post"/></a></div>
+      <div class="social-item"><a href="https://www.instagram.com/buttrd.me/" target="_blank" rel="noopener noreferrer" aria-label="View on Instagram"><img src="assets/melts-wraps.png"   alt="Instagram post"/></a></div>
+      <div class="social-item"><a href="https://www.instagram.com/buttrd.me/" target="_blank" rel="noopener noreferrer" aria-label="View on Instagram"><img src="assets/desserts-1.png"    alt="Instagram post"/></a></div>
     </div>
   </div>
 </section>
@@ -305,7 +159,7 @@
     <div class="footer-col">
       <h4>Follow Us</h4>
       <ul>
-        <li><a href="#">Instagram</a></li>
+        <li><a href="https://www.instagram.com/buttrd.me/" target="_blank" rel="noopener noreferrer">Instagram</a></li>
         <li><a href="#">Facebook</a></li>
         <li><a href="#">TikTok</a></li>
       </ul>
@@ -337,5 +191,15 @@
     if(!wasOpen) item.classList.add('open');
   }
 </script>
+  <script type="text/javascript">
+    (function (w, d, s, f) {
+      w["DeliverectWidgetClient"] = "buttrd-uae";
+      var p = d.createElement(s);
+      p.type = "text/javascript";
+      p.async = true; p.src = f;
+      var c = d.getElementsByTagName("script")[0];
+      c.parentNode.insertBefore(p, c);
+    })(window, document, "script", "https://widget.deliverect.com/widget.v1.js")
+  </script>
 </body>
 </html>
