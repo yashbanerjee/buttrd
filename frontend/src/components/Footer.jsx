@@ -57,12 +57,6 @@ export function Footer({ aboutUsTo = '#' }) {
                 Instagram
               </a>
             </li>
-            <li>
-              <a href="#">Facebook</a>
-            </li>
-            <li>
-              <a href="#">TikTok</a>
-            </li>
           </ul>
         </div>
       </div>

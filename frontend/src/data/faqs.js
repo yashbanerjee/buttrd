@@ -1,10 +1,5 @@
 export const homeFaqs = [
   {
-    question: 'How do I place a catering order?',
-    answer:
-      "To place a catering order, visit our catering page or contact our team at (555) 123-4567. We require at least 48 hours' notice for all catering orders.",
-  },
-  {
     question: 'What types of cuisine do you offer?',
     answer:
       'Comfort food built around our in-house sauces—Buttrd, Beef Chilli, and Birria—served as brioche rolls, rice and pasta bowls, melts and wraps, plus desserts and drinks.',
@@ -30,11 +25,6 @@ export const homeFaqs = [
 
 export const cateringFaqs = [
   {
-    question: 'How do I place a catering order?',
-    answer:
-      "To place a catering order, visit our catering page or contact our team at (555) 123-4567. We require at least 48 hours' notice for all catering orders.",
-  },
-  {
     question: 'What types of cuisine do you offer?',
     answer:
       'We offer wings, brioche rolls, burgers, wraps, salads, and a full desserts and drinks menu — all made fresh daily.',
@@ -59,11 +49,6 @@ export const cateringFaqs = [
 ]
 
 export const ourStoryFaqs = [
-  {
-    question: 'How do I place a catering order?',
-    answer:
-      "To place a catering order, visit our catering page or contact our team at (555) 123-4567. We require at least 48 hours' notice for all catering orders.",
-  },
   {
     question: 'What types of cuisine do you offer?',
     answer:

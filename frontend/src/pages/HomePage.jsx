@@ -4,7 +4,9 @@ import { Footer } from "../components/Footer.jsx";
 import { SocialSection } from "../components/SocialSection.jsx";
 import { BriocheLabsSection } from "../components/BriocheLabsSection.jsx";
 import { WaveDivider } from "../components/WaveDivider.jsx";
+import { HeroCardDeck } from "../components/HeroCardDeck.jsx";
 import { homeFaqs } from "../data/faqs.js";
+import { heroCards } from "../data/heroCards.js";
 import { homeSocialImages } from "../data/socialGrids.js";
 
 export function HomePage() {
@@ -17,10 +19,6 @@ export function HomePage() {
       <section className="hero">
         <div className="hero-inner">
           <div className="hero-content">
-            <span className="hero-headline">
-              MADE FOR THE MOMENT <br />
-              YOU’VE BEEN CRAVING.
-            </span>
             <div>
               <p className="hero-subtitle">
                 Buttrd is built on a simple idea: take the comfort food people
@@ -70,10 +68,7 @@ It is about doing simple things better with more intention, more depth, and more
             </a>
           </div>
           <div className="hero-image">
-            <img
-              src="/assets/hero-home.png"
-              alt="Menu highlights: Chilli Cheese Loaded Hot Dog, Buttrd Paneer Brioche, Beef Chilli Cheese, and Buttrd Chicken Brioche on pink"
-            />
+            <HeroCardDeck cards={heroCards} />
           </div>
         </div>
       </section>
