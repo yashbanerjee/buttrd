@@ -3,8 +3,7 @@ import { FeedbackFaq } from "../components/FeedbackFaq.jsx";
 import { Footer } from "../components/Footer.jsx";
 import { SocialSection } from "../components/SocialSection.jsx";
 import { BriocheLabsSection } from "../components/BriocheLabsSection.jsx";
-import { WaveDivider } from "../components/WaveDivider.jsx";
-import { HeroCardDeck } from "../components/HeroCardDeck.jsx";
+import { HeroCarousel } from "../components/HeroCarousel.jsx";
 import { homeFaqs } from "../data/faqs.js";
 import { BUTTRD_ORDER_URL } from "../data/buttrdLinks.js";
 import { heroCards } from "../data/heroCards.js";
@@ -18,7 +17,7 @@ export function HomePage() {
       </Helmet>
 
       <section className="hero">
-        <div className="hero-inner">
+        <div className="hero-split">
           <div className="hero-content">
             <div>
               <p className="hero-subtitle">
@@ -69,13 +68,11 @@ It is about doing simple things better with more intention, more depth, and more
               Order Now
             </a>
           </div>
-          <div className="hero-image">
-            <HeroCardDeck cards={heroCards} />
+          <div className="hero-media">
+            <HeroCarousel slides={heroCards} />
           </div>
         </div>
       </section>
-
-      <WaveDivider background="var(--pink)" pathFill="var(--hero-bg)" />
 
       <section className="sauces">
         <div className="section-inner">
@@ -148,11 +145,7 @@ It is about doing simple things better with more intention, more depth, and more
         </div>
       </section>
 
-      <WaveDivider background="var(--blue)" pathFill="var(--pink)" />
-
       <BriocheLabsSection />
-
-      <WaveDivider background="#fff" pathFill="var(--blue)" svgStyle={{ color: 'rgba(255, 255, 255, 1)', backgroundColor: 'rgba(235, 248, 255, 1)' }} />
 
       {/* <section className="food-range">
         <div className="section-inner">
