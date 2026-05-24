@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link, Navigate } from 'react-router-dom'
 import { getAdminToken, logoutAdmin, saveSiteContent, uploadImage } from '../../api/adminApi.js'
 import { defaultSiteContent } from '../../data/defaultSiteContent.js'
@@ -17,6 +17,22 @@ const SOCIAL_PAGES = [
 ]
 
 function ImageField({ label, src, alt, onSrcChange, onAltChange, onUpload }) {
+  const inputRef = useRef(null)
+  const [uploading, setUploading] = useState(false)
+
+  async function handleFileChange(e) {
+    const file = e.target.files?.[0]
+    e.target.value = ''
+    if (!file) return
+
+    setUploading(true)
+    try {
+      await onUpload(file)
+    } finally {
+      setUploading(false)
+    }
+  }
+
   return (
     <div className="admin-image-field">
       <div className="admin-image-field__preview">
@@ -31,20 +47,21 @@ function ImageField({ label, src, alt, onSrcChange, onAltChange, onUpload }) {
           <span>Alt text</span>
           <input type="text" value={alt} onChange={(e) => onAltChange(e.target.value)} />
         </label>
-        <label className="admin-upload-btn">
-          Upload new image
-          <input
-            type="file"
-            accept="image/*"
-            hidden
-            onChange={async (e) => {
-              const file = e.target.files?.[0]
-              if (!file) return
-              await onUpload(file)
-              e.target.value = ''
-            }}
-          />
-        </label>
+        <button
+          type="button"
+          className="admin-upload-btn"
+          disabled={uploading}
+          onClick={() => inputRef.current?.click()}
+        >
+          {uploading ? 'Uploading…' : 'Upload new image'}
+        </button>
+        <input
+          ref={inputRef}
+          type="file"
+          accept="image/*"
+          className="admin-file-input"
+          onChange={handleFileChange}
+        />
       </div>
     </div>
   )
@@ -57,9 +74,10 @@ export function AdminDashboardPage() {
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
   const [saving, setSaving] = useState(false)
+  const draftDirty = useRef(false)
 
   useEffect(() => {
-    if (loading) return
+    if (loading || draftDirty.current) return
     setDraft({
       heroCards: [...(content.heroCards || [])],
       offers: [...(content.offers || [])],
@@ -80,12 +98,27 @@ export function AdminDashboardPage() {
     return url
   }
 
+  async function uploadFieldImage(file, applyUrl) {
+    setError('')
+    setMessage('')
+    try {
+      const url = await handleUpload(file)
+      draftDirty.current = true
+      applyUrl(url)
+      setMessage('Image uploaded. Click Save changes to publish.')
+    } catch (err) {
+      setError(err.message || 'Upload failed')
+      throw err
+    }
+  }
+
   async function handleSave() {
     setSaving(true)
     setError('')
     setMessage('')
     try {
       await saveSiteContent(draft)
+      draftDirty.current = false
       await refresh()
       setMessage('Saved successfully.')
     } catch (err) {
@@ -101,6 +134,7 @@ export function AdminDashboardPage() {
   }
 
   function updateHero(index, patch) {
+    draftDirty.current = true
     setDraft((prev) => {
       const heroCards = [...prev.heroCards]
       heroCards[index] = { ...heroCards[index], ...patch }
@@ -109,6 +143,7 @@ export function AdminDashboardPage() {
   }
 
   function moveHero(index, direction) {
+    draftDirty.current = true
     setDraft((prev) => {
       const heroCards = [...prev.heroCards]
       const next = index + direction
@@ -119,6 +154,7 @@ export function AdminDashboardPage() {
   }
 
   function addHero() {
+    draftDirty.current = true
     setDraft((prev) => ({
       ...prev,
       heroCards: [...prev.heroCards, { src: '', alt: '' }],
@@ -126,6 +162,7 @@ export function AdminDashboardPage() {
   }
 
   function removeHero(index) {
+    draftDirty.current = true
     setDraft((prev) => ({
       ...prev,
       heroCards: prev.heroCards.filter((_, i) => i !== index),
@@ -133,6 +170,7 @@ export function AdminDashboardPage() {
   }
 
   function updateOffer(index, patch) {
+    draftDirty.current = true
     setDraft((prev) => {
       const offers = [...prev.offers]
       offers[index] = { ...offers[index], ...patch }
@@ -141,6 +179,7 @@ export function AdminDashboardPage() {
   }
 
   function addOffer() {
+    draftDirty.current = true
     setDraft((prev) => ({
       ...prev,
       offers: [
@@ -159,6 +198,7 @@ export function AdminDashboardPage() {
   }
 
   function removeOffer(index) {
+    draftDirty.current = true
     setDraft((prev) => ({
       ...prev,
       offers: prev.offers.filter((_, i) => i !== index),
@@ -166,6 +206,7 @@ export function AdminDashboardPage() {
   }
 
   function updateSocial(index, patch) {
+    draftDirty.current = true
     setDraft((prev) => {
       const socialGrids = { ...prev.socialGrids }
       const list = [...socialGrids[socialPage]]
@@ -176,6 +217,7 @@ export function AdminDashboardPage() {
   }
 
   function addSocial() {
+    draftDirty.current = true
     setDraft((prev) => {
       const socialGrids = { ...prev.socialGrids }
       socialGrids[socialPage] = [...socialGrids[socialPage], { src: '', alt: 'Instagram post' }]
@@ -184,6 +226,7 @@ export function AdminDashboardPage() {
   }
 
   function removeSocial(index) {
+    draftDirty.current = true
     setDraft((prev) => {
       const socialGrids = { ...prev.socialGrids }
       socialGrids[socialPage] = socialGrids[socialPage].filter((_, i) => i !== index)
@@ -247,10 +290,9 @@ export function AdminDashboardPage() {
                     alt={slide.alt}
                     onSrcChange={(src) => updateHero(index, { src })}
                     onAltChange={(alt) => updateHero(index, { alt })}
-                    onUpload={async (file) => {
-                      const url = await handleUpload(file)
-                      updateHero(index, { src: url })
-                    }}
+                    onUpload={(file) =>
+                      uploadFieldImage(file, (url) => updateHero(index, { src: url }))
+                    }
                   />
                   <div className="admin-card__actions">
                     <button type="button" onClick={() => moveHero(index, -1)} disabled={index === 0}>
@@ -382,10 +424,9 @@ export function AdminDashboardPage() {
                     alt={image.alt}
                     onSrcChange={(src) => updateSocial(index, { src })}
                     onAltChange={(alt) => updateSocial(index, { alt })}
-                    onUpload={async (file) => {
-                      const url = await handleUpload(file)
-                      updateSocial(index, { src: url })
-                    }}
+                    onUpload={(file) =>
+                      uploadFieldImage(file, (url) => updateSocial(index, { src: url }))
+                    }
                   />
                   <div className="admin-card__actions">
                     <button type="button" className="admin-btn--danger" onClick={() => removeSocial(index)}>

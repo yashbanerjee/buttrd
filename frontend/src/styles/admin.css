@@ -220,11 +220,22 @@
   padding: 8px 14px;
   background: var(--light-pink);
   color: var(--pink);
+  border: none;
   border-radius: 8px;
   font-size: 13px;
   font-weight: 700;
+  font-family: var(--font-body);
   cursor: pointer;
   width: fit-content;
+}
+
+.admin-upload-btn:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+.admin-file-input {
+  display: none;
 }
 
 .admin-image-field {

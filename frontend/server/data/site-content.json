@@ -1,19 +1,19 @@
 {
   "heroCards": [
     {
-      "src": "/assets/hero-food.png",
-      "alt": "Loaded comfort food dishes on a pink background"
-    },
-    {
-      "src": "/assets/brioche-labs-hero.png",
-      "alt": "Stack of four loaded toasted brioche rolls with toppings and sauce drizzle"
-    },
-    {
       "src": "/assets/hero-home.png",
       "alt": "Menu highlights: Chilli Cheese Loaded Hot Dog, Buttrd Paneer Brioche, Beef Chilli Cheese, and Buttrd Chicken Brioche on pink"
     },
     {
-      "src": "/assets/brioche-rolls-stack.png",
+      "src": "/assets/uploads/1779643041096-a7088571.png",
+      "alt": "Loaded comfort food dishes on a pink background"
+    },
+    {
+      "src": "/assets/uploads/1779643046866-81759d5a.png",
+      "alt": "Stack of four loaded toasted brioche rolls with toppings and sauce drizzle"
+    },
+    {
+      "src": "/assets/uploads/1779643055518-84809a84.png",
       "alt": "Stack of loaded brioche sandwiches with pink sauce poured over the top"
     }
   ],

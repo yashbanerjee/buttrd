@@ -20,6 +20,10 @@ async function request(path, options = {}) {
 
   const res = await fetch(path, { ...options, headers })
   const data = await res.json().catch(() => ({}))
+  if (res.status === 401) {
+    setAdminToken(null)
+    throw new Error('Session expired. Please sign in again.')
+  }
   if (!res.ok) throw new Error(data.error || `Request failed (${res.status})`)
   return data
 }
