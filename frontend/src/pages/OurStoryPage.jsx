@@ -3,9 +3,11 @@ import { FeedbackFaq } from '../components/FeedbackFaq.jsx'
 import { Footer } from '../components/Footer.jsx'
 import { SocialSection } from '../components/SocialSection.jsx'
 import { ourStoryFaqs } from '../data/faqs.js'
-import { ourStorySocialImages } from '../data/socialGrids.js'
+import { useSiteContent } from '../context/SiteContentContext.jsx'
 
 export function OurStoryPage() {
+  const { socialGrids } = useSiteContent()
+
   return (
     <>
       <Helmet>
@@ -72,7 +74,7 @@ export function OurStoryPage() {
         </div>
       </section>
 
-      <SocialSection images={ourStorySocialImages} />
+      <SocialSection images={socialGrids.ourStory} />
       <FeedbackFaq faqs={ourStoryFaqs} />
       <Footer aboutUsTo="/our-story" />
     </>

@@ -6,10 +6,11 @@ import { BriocheLabsSection } from "../components/BriocheLabsSection.jsx";
 import { HeroCarousel } from "../components/HeroCarousel.jsx";
 import { homeFaqs } from "../data/faqs.js";
 import { BUTTRD_ORDER_URL } from "../data/buttrdLinks.js";
-import { heroCards } from "../data/heroCards.js";
-import { homeSocialImages } from "../data/socialGrids.js";
+import { useSiteContent } from "../context/SiteContentContext.jsx";
 
 export function HomePage() {
+  const { heroCards, socialGrids } = useSiteContent();
+
   return (
     <>
       <Helmet>
@@ -243,7 +244,7 @@ It is about doing simple things better with more intention, more depth, and more
         </div>
       </section> */}
 
-      <SocialSection images={homeSocialImages} />
+      <SocialSection images={socialGrids.home} />
       <FeedbackFaq faqs={homeFaqs} />
       <Footer aboutUsTo="#" />
     </>

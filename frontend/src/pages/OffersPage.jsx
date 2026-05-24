@@ -1,9 +1,11 @@
 import { Helmet } from 'react-helmet-async'
 import { OfferCoupon } from '../components/OfferCoupon.jsx'
 import { Footer } from '../components/Footer.jsx'
-import { offers } from '../data/offers.js'
+import { useSiteContent } from '../context/SiteContentContext.jsx'
 
 export function OffersPage() {
+  const { offers } = useSiteContent()
+
   return (
     <>
       <Helmet>

@@ -4,7 +4,7 @@ import { Footer } from '../components/Footer.jsx'
 import { SocialSection } from '../components/SocialSection.jsx'
 import { WaveDivider } from '../components/WaveDivider.jsx'
 import { cateringFaqs } from '../data/faqs.js'
-import { cateringSocialImages } from '../data/socialGrids.js'
+import { useSiteContent } from '../context/SiteContentContext.jsx'
 
 function MenuCardArrow() {
   return (
@@ -29,6 +29,8 @@ function MenuCard({ src, alt, label }) {
 }
 
 export function CateringPage() {
+  const { socialGrids } = useSiteContent()
+
   return (
     <>
       <Helmet>
@@ -147,7 +149,7 @@ export function CateringPage() {
       </section>
 
       <FeedbackFaq faqs={cateringFaqs} />
-      <SocialSection images={cateringSocialImages} />
+      <SocialSection images={socialGrids.catering} />
       <Footer aboutUsTo="#" />
     </>
   )

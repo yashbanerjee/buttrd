@@ -1,0 +1,117 @@
+{
+  "heroCards": [
+    {
+      "src": "/assets/hero-food.png",
+      "alt": "Loaded comfort food dishes on a pink background"
+    },
+    {
+      "src": "/assets/brioche-labs-hero.png",
+      "alt": "Stack of four loaded toasted brioche rolls with toppings and sauce drizzle"
+    },
+    {
+      "src": "/assets/hero-home.png",
+      "alt": "Menu highlights: Chilli Cheese Loaded Hot Dog, Buttrd Paneer Brioche, Beef Chilli Cheese, and Buttrd Chicken Brioche on pink"
+    },
+    {
+      "src": "/assets/brioche-rolls-stack.png",
+      "alt": "Stack of loaded brioche sandwiches with pink sauce poured over the top"
+    }
+  ],
+  "offers": [
+    {
+      "id": "welcome to buttrd",
+      "badge": "15% OFF",
+      "title": "Welcome aboard buttrd new",
+      "description": "Your first delivery order over AED 50 — sauces, melts, the lot.",
+      "code": "WELCOME15",
+      "expires": "30 Jun 2026",
+      "active": true
+    },
+    {
+      "id": "bundle",
+      "badge": "Free add-on",
+      "title": "Sauce lover bundle",
+      "description": "Order any two mains and pick a free side or house drink at checkout.",
+      "code": "SAUCE2X",
+      "expires": "1 May 2026",
+      "active": true
+    },
+    {
+      "id": "weekend",
+      "badge": "20% OFF",
+      "title": "Weekend treat",
+      "description": "Fri–Sun only. One code per cart — cannot be combined with other promos.",
+      "code": "WEEKEND20",
+      "expires": "30 Apr 2026",
+      "active": true
+    }
+  ],
+  "socialGrids": {
+    "home": [
+      {
+        "src": "/assets/social-1.png",
+        "alt": "Instagram post"
+      },
+      {
+        "src": "/assets/catering-hero.png",
+        "alt": "Instagram post"
+      },
+      {
+        "src": "/assets/brioche-bread.png",
+        "alt": "Instagram post"
+      },
+      {
+        "src": "/assets/melts-wraps.png",
+        "alt": "Instagram post"
+      },
+      {
+        "src": "/assets/desserts-1.png",
+        "alt": "Instagram post"
+      }
+    ],
+    "catering": [
+      {
+        "src": "/assets/social-1.png",
+        "alt": "Instagram post"
+      },
+      {
+        "src": "/assets/catering-hero.png",
+        "alt": "Instagram post"
+      },
+      {
+        "src": "/assets/melts-wraps.png",
+        "alt": "Instagram post"
+      },
+      {
+        "src": "/assets/hero-food.png",
+        "alt": "Instagram post"
+      },
+      {
+        "src": "/assets/desserts-1.png",
+        "alt": "Instagram post"
+      }
+    ],
+    "ourStory": [
+      {
+        "src": "/assets/social-1.png",
+        "alt": "Instagram post"
+      },
+      {
+        "src": "/assets/catering-hero.png",
+        "alt": "Instagram post"
+      },
+      {
+        "src": "/assets/brioche-bread.png",
+        "alt": "Instagram post"
+      },
+      {
+        "src": "/assets/melts-wraps.png",
+        "alt": "Instagram post"
+      },
+      {
+        "src": "/assets/desserts-1.png",
+        "alt": "Instagram post"
+      }
+    ]
+  }
+}
