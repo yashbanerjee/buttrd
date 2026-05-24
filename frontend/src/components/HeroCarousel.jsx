@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
+import { toMediaUrl } from "../utils/mediaUrl.js";
 
 const AUTO_PLAY_MS = 5000;
 
@@ -70,7 +71,7 @@ export function HeroCarousel({ slides, autoPlayMs = AUTO_PLAY_MS }) {
             className={`hero-carousel__slide${i === index ? " is-active" : ""}`}
             aria-hidden={i !== index}
           >
-            <img src={slide.src} alt={slide.alt} draggable={false} />
+            <img src={toMediaUrl(slide.src)} alt={slide.alt} draggable={false} />
           </div>
         ))}
       </div>

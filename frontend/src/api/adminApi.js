@@ -40,6 +40,9 @@ export function loginAdmin(password) {
 }
 
 export function saveSiteContent(content) {
+  if (!content || typeof content !== 'object') {
+    return Promise.reject(new Error('Nothing to save'))
+  }
   return request('/api/admin/content', {
     method: 'PUT',
     body: JSON.stringify(content),

@@ -1,16 +1,21 @@
 import './env.js'
 import { randomBytes } from 'node:crypto'
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
-import { dirname, extname, join } from 'node:path'
+import { copyFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { basename, dirname, extname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import express from 'express'
 import multer from 'multer'
+import {
+  FRONTEND_ROOT,
+  ensureDir,
+  getContentPath,
+  getDistUploadDir,
+  getUploadDir,
+} from './paths.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const FRONTEND_ROOT = join(__dirname, '..')
-const DATA_DIR = join(__dirname, 'data')
-const CONTENT_PATH = join(DATA_DIR, 'site-content.json')
-const UPLOAD_DIR = join(FRONTEND_ROOT, 'public', 'assets', 'uploads')
+const CONTENT_PATH = getContentPath()
+const UPLOAD_DIR = getUploadDir()
 const DEFAULT_CONTENT_PATH = join(FRONTEND_ROOT, 'src', 'data', 'defaultSiteContent.js')
 
 const SESSION_TTL_MS = 12 * 60 * 60 * 1000
@@ -30,7 +35,6 @@ function loadDefaultContent() {
 
 function readContent() {
   if (!existsSync(CONTENT_PATH)) {
-    mkdirSync(DATA_DIR, { recursive: true })
     const defaults = loadDefaultContent()
     writeFileSync(CONTENT_PATH, JSON.stringify(defaults, null, 2))
     return defaults
@@ -39,8 +43,18 @@ function readContent() {
 }
 
 function writeContent(content) {
-  mkdirSync(DATA_DIR, { recursive: true })
   writeFileSync(CONTENT_PATH, JSON.stringify(content, null, 2))
+}
+
+function mirrorUploadToDist(filename) {
+  if (process.env.NODE_ENV !== 'production') return
+  try {
+    const distUploadDir = getDistUploadDir()
+    ensureDir(distUploadDir)
+    copyFileSync(join(UPLOAD_DIR, filename), join(distUploadDir, filename))
+  } catch {
+    /* ignore if dist missing */
+  }
 }
 
 function pruneSessions() {
@@ -77,8 +91,6 @@ function requireAdmin(req, res, next) {
   next()
 }
 
-mkdirSync(UPLOAD_DIR, { recursive: true })
-
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => cb(null, UPLOAD_DIR),
   filename: (_req, file, cb) => {
@@ -97,14 +109,32 @@ const upload = multer({
   },
 })
 
+const UPLOAD_FILENAME = /^[\w.-]+\.(png|jpe?g|gif|webp)$/i
+
+function serveUpload(req, res) {
+  const filename = basename(req.params.filename || '')
+  if (!filename || filename.includes('..') || !UPLOAD_FILENAME.test(filename)) {
+    return res.status(400).end()
+  }
+  const filePath = join(UPLOAD_DIR, filename)
+  if (!existsSync(filePath)) {
+    return res.status(404).end()
+  }
+  res.sendFile(filePath)
+}
+
 export function registerApiRoutes(app) {
   app.use(express.json({ limit: '2mb' }))
+
+  app.get('/api/media/:filename', serveUpload)
+  app.get('/assets/uploads/:filename', serveUpload)
 
   app.get('/api/health', (_req, res) => {
     res.json({ ok: true })
   })
 
   app.get('/api/content', (_req, res) => {
+    res.set('Cache-Control', 'no-store')
     res.json(readContent())
   })
 
@@ -126,6 +156,13 @@ export function registerApiRoutes(app) {
 
   app.put('/api/admin/content', requireAdmin, (req, res) => {
     const { heroCards, offers, socialGrids } = req.body || {}
+    if (
+      !Array.isArray(heroCards) &&
+      !Array.isArray(offers) &&
+      !(socialGrids && typeof socialGrids === 'object')
+    ) {
+      return res.status(400).json({ error: 'Invalid content payload' })
+    }
     const current = readContent()
     const next = {
       heroCards: Array.isArray(heroCards) ? heroCards : current.heroCards,
@@ -141,7 +178,8 @@ export function registerApiRoutes(app) {
     upload.single('image')(req, res, (err) => {
       if (err) return res.status(400).json({ error: err.message })
       if (!req.file) return res.status(400).json({ error: 'No image provided' })
-      res.json({ url: `/assets/uploads/${req.file.filename}` })
+      mirrorUploadToDist(req.file.filename)
+      res.json({ url: `/api/media/${req.file.filename}` })
     })
   })
 

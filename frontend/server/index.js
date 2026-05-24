@@ -4,21 +4,28 @@ import { fileURLToPath } from 'node:url'
 import express from 'express'
 import { createServer as createViteServer } from 'vite'
 import { registerApiRoutes } from './api.js'
+import { FRONTEND_ROOT } from './paths.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
-const FRONTEND_ROOT = join(__dirname, '..')
 const isProd = process.env.NODE_ENV === 'production'
 const PORT = Number(process.env.PORT) || 5173
 
 async function start() {
   const app = express()
+
   registerApiRoutes(app)
 
   if (isProd) {
     const distDir = join(FRONTEND_ROOT, 'dist')
     app.use(express.static(distDir, { index: false }))
     app.get('*', (req, res, next) => {
-      if (req.path.startsWith('/api')) return next()
+      if (
+        req.path.startsWith('/api') ||
+        req.path.startsWith('/assets/uploads/') ||
+        req.path.startsWith('/api/media/')
+      ) {
+        return next()
+      }
       res.sendFile(join(distDir, 'index.html'))
     })
   } else {
@@ -32,6 +39,9 @@ async function start() {
 
   const server = app.listen(PORT, () => {
     console.log(`Buttrd ${isProd ? 'production' : 'dev'} server → http://localhost:${PORT}`)
+    if (process.env.PERSISTENT_DATA_DIR) {
+      console.log(`Persistent data → ${process.env.PERSISTENT_DATA_DIR}`)
+    }
     if (!isProd) console.log(`Admin → http://localhost:${PORT}/admin/login`)
   })
 

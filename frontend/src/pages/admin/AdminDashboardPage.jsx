@@ -3,6 +3,7 @@ import { Link, Navigate } from 'react-router-dom'
 import { getAdminToken, logoutAdmin, saveSiteContent, uploadImage } from '../../api/adminApi.js'
 import { defaultSiteContent } from '../../data/defaultSiteContent.js'
 import { useSiteContent } from '../../context/SiteContentContext.jsx'
+import { toMediaUrl } from '../../utils/mediaUrl.js'
 
 const TABS = [
   { id: 'hero', label: 'Hero banners' },
@@ -18,12 +19,38 @@ const SOCIAL_PAGES = [
 
 function ImageField({ label, src, alt, onSrcChange, onAltChange, onUpload }) {
   const inputRef = useRef(null)
+  const blobRef = useRef(null)
   const [uploading, setUploading] = useState(false)
+  const [displaySrc, setDisplaySrc] = useState('')
+
+  useEffect(() => {
+    if (!src) {
+      setDisplaySrc('')
+      return
+    }
+    setDisplaySrc(`${toMediaUrl(src)}?v=${Date.now()}`)
+  }, [src])
+
+  useEffect(() => {
+    return () => {
+      if (blobRef.current) {
+        URL.revokeObjectURL(blobRef.current)
+        blobRef.current = null
+      }
+    }
+  }, [])
 
   async function handleFileChange(e) {
     const file = e.target.files?.[0]
     e.target.value = ''
     if (!file) return
+
+    if (blobRef.current) {
+      URL.revokeObjectURL(blobRef.current)
+    }
+    const blob = URL.createObjectURL(file)
+    blobRef.current = blob
+    setDisplaySrc(blob)
 
     setUploading(true)
     try {
@@ -33,10 +60,32 @@ function ImageField({ label, src, alt, onSrcChange, onAltChange, onUpload }) {
     }
   }
 
+  function handleImgLoad() {
+    if (blobRef.current && displaySrc !== blobRef.current) {
+      URL.revokeObjectURL(blobRef.current)
+      blobRef.current = null
+    }
+  }
+
+  function handleImgError(e) {
+    if (blobRef.current) {
+      e.currentTarget.src = blobRef.current
+      return
+    }
+    const base = toMediaUrl(src)
+    if (base && !e.currentTarget.src.startsWith(base)) {
+      e.currentTarget.src = base
+    }
+  }
+
   return (
     <div className="admin-image-field">
       <div className="admin-image-field__preview">
-        {src ? <img src={src} alt={alt || label} /> : <span>No image</span>}
+        {displaySrc ? (
+          <img src={displaySrc} alt="" onLoad={handleImgLoad} onError={handleImgError} />
+        ) : (
+          <span>No image</span>
+        )}
       </div>
       <div className="admin-image-field__controls">
         <label className="admin-field">
@@ -67,7 +116,7 @@ function ImageField({ label, src, alt, onSrcChange, onAltChange, onUpload }) {
   )
 }
 export function AdminDashboardPage() {
-  const { content, loading, refresh } = useSiteContent()
+  const { content, loading, refresh, updateContent } = useSiteContent()
   const [tab, setTab] = useState('hero')
   const [draft, setDraft] = useState(defaultSiteContent)
   const [socialPage, setSocialPage] = useState('home')
@@ -75,10 +124,15 @@ export function AdminDashboardPage() {
   const [error, setError] = useState('')
   const [saving, setSaving] = useState(false)
   const draftDirty = useRef(false)
+  const draftRef = useRef(defaultSiteContent)
+
+  useEffect(() => {
+    draftRef.current = draft
+  }, [draft])
 
   useEffect(() => {
     if (loading || draftDirty.current) return
-    setDraft({
+    const next = {
       heroCards: [...(content.heroCards || [])],
       offers: [...(content.offers || [])],
       socialGrids: {
@@ -86,7 +140,9 @@ export function AdminDashboardPage() {
         catering: [...(content.socialGrids?.catering || [])],
         ourStory: [...(content.socialGrids?.ourStory || [])],
       },
-    })
+    }
+    draftRef.current = next
+    setDraft(next)
   }, [content, loading])
 
   if (!getAdminToken()) {
@@ -98,14 +154,18 @@ export function AdminDashboardPage() {
     return url
   }
 
-  async function uploadFieldImage(file, applyUrl) {
+  async function uploadFieldImage(file, applyToDraft) {
     setError('')
     setMessage('')
     try {
       const url = await handleUpload(file)
+      const nextDraft = applyToDraft(draftRef.current, url)
+      draftRef.current = nextDraft
+      setDraft(nextDraft)
       draftDirty.current = true
-      applyUrl(url)
-      setMessage('Image uploaded. Click Save changes to publish.')
+      const saved = await saveSiteContent(nextDraft)
+      updateContent(saved)
+      setMessage('Image uploaded and saved.')
     } catch (err) {
       setError(err.message || 'Upload failed')
       throw err
@@ -291,7 +351,12 @@ export function AdminDashboardPage() {
                     onSrcChange={(src) => updateHero(index, { src })}
                     onAltChange={(alt) => updateHero(index, { alt })}
                     onUpload={(file) =>
-                      uploadFieldImage(file, (url) => updateHero(index, { src: url }))
+                      uploadFieldImage(file, (prev, url) => ({
+                        ...prev,
+                        heroCards: prev.heroCards.map((slide, i) =>
+                          i === index ? { ...slide, src: url } : slide,
+                        ),
+                      }))
                     }
                   />
                   <div className="admin-card__actions">
@@ -425,7 +490,13 @@ export function AdminDashboardPage() {
                     onSrcChange={(src) => updateSocial(index, { src })}
                     onAltChange={(alt) => updateSocial(index, { alt })}
                     onUpload={(file) =>
-                      uploadFieldImage(file, (url) => updateSocial(index, { src: url }))
+                      uploadFieldImage(file, (prev, url) => {
+                        const socialGrids = { ...prev.socialGrids }
+                        const list = [...socialGrids[socialPage]]
+                        list[index] = { ...list[index], src: url }
+                        socialGrids[socialPage] = list
+                        return { ...prev, socialGrids }
+                      })
                     }
                   />
                   <div className="admin-card__actions">

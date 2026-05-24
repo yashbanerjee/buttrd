@@ -19,6 +19,13 @@ export function SiteContentProvider({ children }) {
     }
   }, [])
 
+  const updateContent = useCallback((data) => {
+    if (data && typeof data === 'object') {
+      setContent(data)
+    }
+    setLoading(false)
+  }, [])
+
   useEffect(() => {
     refresh()
   }, [refresh])
@@ -28,13 +35,14 @@ export function SiteContentProvider({ children }) {
       content,
       loading,
       refresh,
+      updateContent,
       heroCards: content.heroCards ?? defaultSiteContent.heroCards,
       offers: (content.offers ?? defaultSiteContent.offers).filter(
         (offer) => offer.active !== false,
       ),
       socialGrids: content.socialGrids ?? defaultSiteContent.socialGrids,
     }),
-    [content, loading, refresh],
+    [content, loading, refresh, updateContent],
   )
 
   return <SiteContentContext.Provider value={value}>{children}</SiteContentContext.Provider>
