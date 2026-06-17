@@ -1,10 +1,21 @@
+import { useState } from 'react'
 import { Helmet } from 'react-helmet-async'
+import { submitFormSubmission } from '../api/formsApi.js'
 import { FeedbackFaq } from '../components/FeedbackFaq.jsx'
 import { Footer } from '../components/Footer.jsx'
 import { SocialSection } from '../components/SocialSection.jsx'
 import { WaveDivider } from '../components/WaveDivider.jsx'
 import { cateringFaqs } from '../data/faqs.js'
 import { useSiteContent } from '../context/SiteContentContext.jsx'
+
+const INITIAL_CATERING_FIELDS = {
+  name: '',
+  email: '',
+  phone: '',
+  guestCount: '',
+  eventDateTime: '',
+  location: '',
+}
 
 function MenuCardArrow() {
   return (
@@ -30,6 +41,28 @@ function MenuCard({ src, alt, label }) {
 
 export function CateringPage() {
   const { socialGrids } = useSiteContent()
+  const [fields, setFields] = useState(INITIAL_CATERING_FIELDS)
+  const [status, setStatus] = useState('idle') // idle | submitting | success | error
+
+  const handleChange = (e) => {
+    setFields((prev) => ({ ...prev, [e.target.name]: e.target.value }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setStatus('submitting')
+
+    try {
+      await submitFormSubmission({
+        formType: 'catering',
+        ...fields,
+      })
+      setFields(INITIAL_CATERING_FIELDS)
+      setStatus('success')
+    } catch {
+      setStatus('error')
+    }
+  }
 
   return (
     <>
@@ -92,42 +125,104 @@ export function CateringPage() {
           </div>
           <h2 className="catering-form-title">Catering Form</h2>
           <p className="catering-form-desc">Tell us about your event and we&apos;ll take care of the rest</p>
-          <form
-            className="catering-form-fields"
-            onSubmit={(e) => {
-              e.preventDefault()
-            }}
-          >
-            <div className="form-field">
-              <label>Name</label>
-              <input type="text" placeholder="Enter your name" />
-            </div>
-            <div className="form-field">
-              <label>Email</label>
-              <input type="email" placeholder="Enter your email" />
-            </div>
-            <div className="form-field">
-              <label>Phone</label>
-              <input type="tel" placeholder="Enter your phone number" />
-            </div>
-            <div className="form-field">
-              <label>Number of people</label>
-              <input type="number" placeholder="Enter the number of people for the event" />
-            </div>
-            <div className="form-field">
-              <label>Date &amp; Time of the event</label>
-              <input type="text" placeholder="Enter the date and time of the event" />
-            </div>
-            <div className="form-field">
-              <label>Area / Location to cater</label>
-              <input type="text" placeholder="Enter the area / location" />
-            </div>
-            <div className="form-actions" style={{ marginTop: '8px' }}>
-              <button type="submit" className="btn-submit" style={{ background: 'var(--pink)' }}>
-                Submit
+          {status === 'success' ? (
+            <div className="feedback-success">
+              <p className="feedback-success__title">Thanks for your catering enquiry!</p>
+              <p className="feedback-success__body">We&apos;ve received your details and will get back to you soon.</p>
+              <button className="btn-submit" style={{ marginTop: '8px' }} onClick={() => setStatus('idle')}>
+                Send another
               </button>
             </div>
-          </form>
+          ) : (
+            <form className="catering-form-fields" onSubmit={handleSubmit}>
+              <div className="form-field">
+                <label htmlFor="catering-name">Name</label>
+                <input
+                  id="catering-name"
+                  type="text"
+                  name="name"
+                  placeholder="Enter your name"
+                  value={fields.name}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-field">
+                <label htmlFor="catering-email">Email</label>
+                <input
+                  id="catering-email"
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  value={fields.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-field">
+                <label htmlFor="catering-phone">Phone</label>
+                <input
+                  id="catering-phone"
+                  type="tel"
+                  name="phone"
+                  placeholder="Enter your phone number"
+                  value={fields.phone}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-field">
+                <label htmlFor="catering-guest-count">Number of people</label>
+                <input
+                  id="catering-guest-count"
+                  type="number"
+                  name="guestCount"
+                  min="1"
+                  placeholder="Enter the number of people for the event"
+                  value={fields.guestCount}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-field">
+                <label htmlFor="catering-event-date-time">Date &amp; Time of the event</label>
+                <input
+                  id="catering-event-date-time"
+                  type="text"
+                  name="eventDateTime"
+                  placeholder="Enter the date and time of the event"
+                  value={fields.eventDateTime}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              <div className="form-field">
+                <label htmlFor="catering-location">Area / Location to cater</label>
+                <input
+                  id="catering-location"
+                  type="text"
+                  name="location"
+                  placeholder="Enter the area / location"
+                  value={fields.location}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+              {status === 'error' && (
+                <p className="feedback-error">Something went wrong. Please try again.</p>
+              )}
+              <div className="form-actions" style={{ marginTop: '8px' }}>
+                <button
+                  type="submit"
+                  className="btn-submit"
+                  style={{ background: 'var(--pink)' }}
+                  disabled={status === 'submitting'}
+                >
+                  {status === 'submitting' ? 'Submitting...' : 'Submit'}
+                </button>
+              </div>
+            </form>
+          )}
         </div>
       </section>
 
