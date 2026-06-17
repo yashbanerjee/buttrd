@@ -15,6 +15,10 @@ const FIELD_LIMITS = {
   location: 240,
 }
 
+const DEFAULT_SMTP_CONNECTION_TIMEOUT_MS = 10000
+const DEFAULT_SMTP_GREETING_TIMEOUT_MS = 10000
+const DEFAULT_SMTP_SOCKET_TIMEOUT_MS = 15000
+
 let transporter
 
 function trimField(value, maxLength) {
@@ -81,6 +85,11 @@ function getBooleanEnv(name, fallback) {
   return ['1', 'true', 'yes', 'on'].includes(value.toLowerCase())
 }
 
+function getPositiveIntegerEnv(name, fallback) {
+  const value = Number(process.env[name] || fallback)
+  return Number.isInteger(value) && value > 0 ? value : fallback
+}
+
 function getSmtpConfig() {
   const host = process.env.SMTP_HOST
   const port = Number(process.env.SMTP_PORT || 587)
@@ -98,6 +107,15 @@ function getSmtpConfig() {
     auth: user && pass ? { user, pass } : undefined,
     recipient,
     from: `"${fromName.replace(/"/g, '\\"')}" <${fromEmail}>`,
+    connectionTimeout: getPositiveIntegerEnv(
+      'SMTP_CONNECTION_TIMEOUT_MS',
+      DEFAULT_SMTP_CONNECTION_TIMEOUT_MS,
+    ),
+    greetingTimeout: getPositiveIntegerEnv(
+      'SMTP_GREETING_TIMEOUT_MS',
+      DEFAULT_SMTP_GREETING_TIMEOUT_MS,
+    ),
+    socketTimeout: getPositiveIntegerEnv('SMTP_SOCKET_TIMEOUT_MS', DEFAULT_SMTP_SOCKET_TIMEOUT_MS),
   }
 }
 
@@ -110,12 +128,21 @@ function getTransporter() {
     throw error
   }
 
+  if (!Number.isInteger(config.port) || config.port <= 0 || config.port > 65535) {
+    const error = new Error('SMTP_PORT is invalid')
+    error.code = 'SMTP_CONFIG_INVALID'
+    throw error
+  }
+
   if (!transporter) {
     transporter = nodemailer.createTransport({
       host: config.host,
       port: config.port,
       secure: config.secure,
       auth: config.auth,
+      connectionTimeout: config.connectionTimeout,
+      greetingTimeout: config.greetingTimeout,
+      socketTimeout: config.socketTimeout,
     })
   }
 

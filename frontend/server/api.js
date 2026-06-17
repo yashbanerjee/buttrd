@@ -110,6 +110,25 @@ function isFormSubmissionRateLimited(ip) {
   return false
 }
 
+function getPublicEmailDeliveryError(err) {
+  if (err.code === 'SMTP_NOT_CONFIGURED') {
+    return 'Email delivery is not configured'
+  }
+  if (err.code === 'SMTP_CONFIG_INVALID') {
+    return 'Email delivery configuration is invalid'
+  }
+  return 'Email delivery is currently unavailable'
+}
+
+function logEmailDeliveryError(err) {
+  console.error('Form submission email delivery failed', {
+    code: err.code,
+    command: err.command,
+    responseCode: err.responseCode,
+    message: err.message,
+  })
+}
+
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => cb(null, UPLOAD_DIR),
   filename: (_req, file, cb) => {
@@ -152,7 +171,7 @@ export function registerApiRoutes(app) {
     res.json({ ok: true })
   })
 
-  app.post('/api/form-submissions', async (req, res, next) => {
+  app.post('/api/form-submissions', async (req, res) => {
     const ip = req.ip || req.socket.remoteAddress || 'unknown'
 
     if (isFormSubmissionRateLimited(ip)) {
@@ -168,10 +187,8 @@ export function registerApiRoutes(app) {
       await sendFormSubmissionEmail(validation.data)
       res.json({ ok: true })
     } catch (err) {
-      if (err.code === 'SMTP_NOT_CONFIGURED') {
-        return res.status(503).json({ error: 'Email delivery is not configured' })
-      }
-      next(err)
+      logEmailDeliveryError(err)
+      return res.status(503).json({ error: getPublicEmailDeliveryError(err) })
     }
   })
 

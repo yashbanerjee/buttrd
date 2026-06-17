@@ -22,6 +22,21 @@ SMTP_FROM_NAME=Buttrd Website
 
 `SMTP_FROM_EMAIL` should be an address authorized by the SMTP server. The customer email is used as the message `Reply-To`.
 
+For common SMTP ports:
+
+- Port `465`: set `SMTP_SECURE=true`
+- Port `587`: set `SMTP_SECURE=false`
+
+If production logs show `Greeting never received`, the SMTP host accepted the connection but did not complete the SMTP handshake. Check that `SMTP_HOST`, `SMTP_PORT`, and `SMTP_SECURE` match the mailbox provider's SMTP settings, and that the host allows outbound SMTP connections.
+
+Optional timeout overrides:
+
+```bash
+SMTP_CONNECTION_TIMEOUT_MS=10000
+SMTP_GREETING_TIMEOUT_MS=10000
+SMTP_SOCKET_TIMEOUT_MS=15000
+```
+
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
