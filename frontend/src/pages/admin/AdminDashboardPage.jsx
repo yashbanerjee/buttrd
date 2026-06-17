@@ -21,15 +21,8 @@ function ImageField({ label, src, alt, onSrcChange, onAltChange, onUpload }) {
   const inputRef = useRef(null)
   const blobRef = useRef(null)
   const [uploading, setUploading] = useState(false)
-  const [displaySrc, setDisplaySrc] = useState('')
-
-  useEffect(() => {
-    if (!src) {
-      setDisplaySrc('')
-      return
-    }
-    setDisplaySrc(`${toMediaUrl(src)}?v=${Date.now()}`)
-  }, [src])
+  const [previewSrc, setPreviewSrc] = useState('')
+  const displaySrc = previewSrc || (src ? `${toMediaUrl(src)}?v=${encodeURIComponent(src)}` : '')
 
   useEffect(() => {
     return () => {
@@ -50,11 +43,14 @@ function ImageField({ label, src, alt, onSrcChange, onAltChange, onUpload }) {
     }
     const blob = URL.createObjectURL(file)
     blobRef.current = blob
-    setDisplaySrc(blob)
+    setPreviewSrc(blob)
 
     setUploading(true)
     try {
       await onUpload(file)
+      URL.revokeObjectURL(blob)
+      if (blobRef.current === blob) blobRef.current = null
+      setPreviewSrc('')
     } finally {
       setUploading(false)
     }

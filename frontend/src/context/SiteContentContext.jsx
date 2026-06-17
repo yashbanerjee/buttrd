@@ -27,8 +27,23 @@ export function SiteContentProvider({ children }) {
   }, [])
 
   useEffect(() => {
-    refresh()
-  }, [refresh])
+    let active = true
+
+    fetchPublicContent()
+      .then((data) => {
+        if (active) setContent(data)
+      })
+      .catch(() => {
+        if (active) setContent(defaultSiteContent)
+      })
+      .finally(() => {
+        if (active) setLoading(false)
+      })
+
+    return () => {
+      active = false
+    }
+  }, [])
 
   const value = useMemo(
     () => ({
@@ -48,6 +63,7 @@ export function SiteContentProvider({ children }) {
   return <SiteContentContext.Provider value={value}>{children}</SiteContentContext.Provider>
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useSiteContent() {
   const ctx = useContext(SiteContentContext)
   if (!ctx) throw new Error('useSiteContent must be used within SiteContentProvider')

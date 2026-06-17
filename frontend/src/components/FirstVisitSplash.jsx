@@ -1,6 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-
-const STORAGE_KEY = 'buttrd_splash_seen'
+import { FIRST_VISIT_SPLASH_STORAGE_KEY } from '../utils/firstVisitSplash.js'
 
 /**
  * One-time first-visit overlay: yellow drip slides into place, logo buzzes, then fades away.
@@ -9,7 +8,10 @@ export function FirstVisitSplash({ onComplete }) {
   const [dripIn, setDripIn] = useState(false)
   const [fadeOut, setFadeOut] = useState(false)
   const onCompleteRef = useRef(onComplete)
-  onCompleteRef.current = onComplete
+
+  useEffect(() => {
+    onCompleteRef.current = onComplete
+  }, [onComplete])
 
   useEffect(() => {
     let cancelled = false
@@ -26,7 +28,7 @@ export function FirstVisitSplash({ onComplete }) {
     const doneTimer = window.setTimeout(() => {
       if (cancelled) return
       try {
-        localStorage.setItem(STORAGE_KEY, '1')
+        localStorage.setItem(FIRST_VISIT_SPLASH_STORAGE_KEY, '1')
       } catch {
         /* private mode etc. */
       }
@@ -70,13 +72,4 @@ export function FirstVisitSplash({ onComplete }) {
       </div>
     </div>
   )
-}
-
-export function shouldShowFirstVisitSplash() {
-  if (typeof window === 'undefined') return false
-  try {
-    return !localStorage.getItem(STORAGE_KEY)
-  } catch {
-    return true
-  }
 }
