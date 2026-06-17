@@ -48,6 +48,24 @@ Text edits require **Save changes**. **Image uploads save automatically** (file 
 | `server/data/site-content.json` | Hero, offers, social content |
 | `public/assets/uploads/` (or volume) | Images uploaded via admin |
 
+In production, these paths must live on a persistent disk/volume. If they only exist inside the deployed app container, a new deploy can replace the filesystem with the repository copy and live admin edits can disappear.
+
+## Before deploying code changes
+
+If the live site has already been edited through the admin panel:
+
+1. Confirm the host has a persistent volume mounted and `PERSISTENT_DATA_DIR` points to it.
+2. Back up the live content JSON before deploying:
+
+   ```bash
+   curl https://your-live-domain.com/api/content > live-site-content-backup.json
+   ```
+
+3. Confirm uploaded images are also on the same persistent volume, not only inside the app build.
+4. Do not replace the live `site-content.json` with the repository copy unless you intentionally want to reset admin edits.
+
+This branch does not modify `server/data/site-content.json` or `src/data/defaultSiteContent.js`, but the persistent volume still needs to be configured before redeploying a site that has live admin changes.
+
 ## Deploying on Railway
 
 1. Set **Root Directory** to `frontend`

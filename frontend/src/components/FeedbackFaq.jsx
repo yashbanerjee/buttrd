@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-
-const FORMSPREE_ENDPOINT = import.meta.env.VITE_FORMSPREE_ENDPOINT
+import { submitFormSubmission } from '../api/formsApi.js'
 
 const INITIAL_FIELDS = {
   name: '',
@@ -52,29 +51,20 @@ export function FeedbackFaq({ faqs }) {
     setStatus('submitting')
     try {
       const payload = {
-        form_type: isFeedback ? 'Order feedback' : 'General enquiry',
+        formType: isFeedback ? 'feedback' : 'contact',
         name: fields.name,
         email: fields.email,
         phone: fields.phone,
         message: fields.message,
-        _subject: isFeedback ? 'New Order Feedback – Buttrd' : 'New Contact Enquiry – Buttrd',
       }
       if (isFeedback) {
-        payload.order_date = fields.orderDate
-        payload.order_time = fields.orderTime
+        payload.orderDate = fields.orderDate
+        payload.orderTime = fields.orderTime
       }
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
-      })
-      if (res.ok) {
-        setStatus('success')
-        setFields(INITIAL_FIELDS)
-        setFormType('contact')
-      } else {
-        setStatus('error')
-      }
+      await submitFormSubmission(payload)
+      setStatus('success')
+      setFields(INITIAL_FIELDS)
+      setFormType('contact')
     } catch {
       setStatus('error')
     }

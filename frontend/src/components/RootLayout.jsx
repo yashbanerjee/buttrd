@@ -1,6 +1,7 @@
 import { useEffect, useLayoutEffect, useState } from 'react'
 import { Outlet, useLocation } from 'react-router-dom'
-import { FirstVisitSplash, shouldShowFirstVisitSplash } from './FirstVisitSplash.jsx'
+import { FirstVisitSplash } from './FirstVisitSplash.jsx'
+import { shouldShowFirstVisitSplash } from '../utils/firstVisitSplash.js'
 import { MobileTabBar } from './MobileTabBar.jsx'
 import { SiteNav } from './SiteNav.jsx'
 

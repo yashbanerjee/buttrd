@@ -41,6 +41,10 @@ async function start() {
     console.log(`Buttrd ${isProd ? 'production' : 'dev'} server → http://localhost:${PORT}`)
     if (process.env.PERSISTENT_DATA_DIR) {
       console.log(`Persistent data → ${process.env.PERSISTENT_DATA_DIR}`)
+    } else if (isProd) {
+      console.warn(
+        'Warning: PERSISTENT_DATA_DIR is not set. Admin content and uploads will use the app filesystem and may be lost on redeploy.',
+      )
     }
     if (!isProd) console.log(`Admin → http://localhost:${PORT}/admin/login`)
   })

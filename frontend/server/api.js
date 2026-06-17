@@ -5,6 +5,7 @@ import { basename, dirname, extname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import express from 'express'
 import multer from 'multer'
+import { sendFormSubmissionEmail, validateFormSubmission } from './formMailer.js'
 import {
   FRONTEND_ROOT,
   ensureDir,
@@ -19,12 +20,15 @@ const UPLOAD_DIR = getUploadDir()
 const DEFAULT_CONTENT_PATH = join(FRONTEND_ROOT, 'src', 'data', 'defaultSiteContent.js')
 
 const SESSION_TTL_MS = 12 * 60 * 60 * 1000
+const FORM_SUBMISSION_WINDOW_MS = 10 * 60 * 1000
+const FORM_SUBMISSION_MAX_PER_WINDOW = 5
 
 function getAdminPassword() {
   return process.env.ADMIN_PASSWORD || 'buttrd-admin-change-me'
 }
 
 const sessions = new Map()
+const formSubmissionAttempts = new Map()
 
 function loadDefaultContent() {
   const raw = readFileSync(DEFAULT_CONTENT_PATH, 'utf8')
@@ -91,6 +95,40 @@ function requireAdmin(req, res, next) {
   next()
 }
 
+function isFormSubmissionRateLimited(ip) {
+  const now = Date.now()
+  const attempts = formSubmissionAttempts.get(ip) || []
+  const recentAttempts = attempts.filter((timestamp) => now - timestamp < FORM_SUBMISSION_WINDOW_MS)
+
+  if (recentAttempts.length >= FORM_SUBMISSION_MAX_PER_WINDOW) {
+    formSubmissionAttempts.set(ip, recentAttempts)
+    return true
+  }
+
+  recentAttempts.push(now)
+  formSubmissionAttempts.set(ip, recentAttempts)
+  return false
+}
+
+function getPublicEmailDeliveryError(err) {
+  if (err.code === 'SMTP_NOT_CONFIGURED') {
+    return 'Email delivery is not configured'
+  }
+  if (err.code === 'SMTP_CONFIG_INVALID') {
+    return 'Email delivery configuration is invalid'
+  }
+  return 'Email delivery is currently unavailable'
+}
+
+function logEmailDeliveryError(err) {
+  console.error('Form submission email delivery failed', {
+    code: err.code,
+    command: err.command,
+    responseCode: err.responseCode,
+    message: err.message,
+  })
+}
+
 const storage = multer.diskStorage({
   destination: (_req, _file, cb) => cb(null, UPLOAD_DIR),
   filename: (_req, file, cb) => {
@@ -131,6 +169,27 @@ export function registerApiRoutes(app) {
 
   app.get('/api/health', (_req, res) => {
     res.json({ ok: true })
+  })
+
+  app.post('/api/form-submissions', async (req, res) => {
+    const ip = req.ip || req.socket.remoteAddress || 'unknown'
+
+    if (isFormSubmissionRateLimited(ip)) {
+      return res.status(429).json({ error: 'Too many submissions. Please try again later.' })
+    }
+
+    const validation = validateFormSubmission(req.body)
+    if (!validation.ok) {
+      return res.status(400).json({ error: validation.error })
+    }
+
+    try {
+      await sendFormSubmissionEmail(validation.data)
+      res.json({ ok: true })
+    } catch (err) {
+      logEmailDeliveryError(err)
+      return res.status(503).json({ error: getPublicEmailDeliveryError(err) })
+    }
   })
 
   app.get('/api/content', (_req, res) => {
